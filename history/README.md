@@ -21,6 +21,7 @@ Out of scope by default:
 ## Start here
 
 - [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md) — current direct LLM line and revised capability/gap assessment; includes the important calibration that CANA already models per-analogy limitations and difference awareness.
+- [`CANA_CLOSE_READ.md`](CANA_CLOSE_READ.md) — close read of ADR-bench, CANA's forward/historical split and the theory's separation of structural-identification error from mechanism-transfer error.
 - [`HISTORICAL_TRANSFER_BENCH.md`](HISTORICAL_TRANSFER_BENCH.md) — benchmark design for selective historical transfer: hard negatives, partial transfer, no-valid-precedent cases, competing representations, hindsight arms, dependence controls and longitudinal applicability memory.
 - [`HISTORICAL_TRANSFER_BENCH_EXTENSIONS.md`](HISTORICAL_TRANSFER_BENCH_EXTENSIONS.md) — case-vs-class conflict, competing-precedent diagnosticity, salience robustness, chronological replay and incremental-value ablations.
 - [`APPLICATION_DOMAINS.md`](APPLICATION_DOMAINS.md) — foreign policy, conflict forecasting, epidemics, macro/finance, military/intelligence and technology/foresight applications.
@@ -31,6 +32,9 @@ Out of scope by default:
 - [`CASE_CLASS_HYBRID.md`](CASE_CLASS_HYBRID.md) — prior art showing that analogy + outside view is already an established forecasting hybrid; includes leakage-aware macro-analog actor–critic evidence and isolates the narrower foundation-model frontier.
 - [`COMPETING_HYPOTHESES_BRIDGE.md`](COMPETING_HYPOTHESES_BRIDGE.md) — intelligence-analysis and Bayesian-process-tracing controls: alternative precedents, evidence diagnosticity, disconfirmation, and the warning that procedural structure without calibration can worsen judgment.
 - [`COVERAGE_AND_SALIENCE_PRIORS.md`](COVERAGE_AND_SALIENCE_PRIORS.md) — tests whether canonical/high-coverage historical sources are retrieved because of parametric familiarity rather than downstream structural utility.
+- [`BOUNDARY_MEMORY.md`](BOUNDARY_MEMORY.md) — OBAM/ForecastCompass/WorldReasoner prior art for learning discriminative failure boundaries and resolved-outcome memory; narrows the historical gap to relation/projection-specific applicability memory.
+- [`LIVE_CRISIS_ANALOGY.md`](LIVE_CRISIS_ANALOGY.md) — post-cutoff live-crisis evidence that strong models can sometimes contextualize a supplied historical precedent when strategic conditions change.
+- [`MECHANISM_VALIDATION.md`](MECHANISM_VALIDATION.md) — causal-pathway abstraction, falsification and event-causality benchmarks as a way to validate mechanism hypotheses rather than trust one generated event DAG.
 - [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
 - [`TEMPORAL_VALIDATION.md`](TEMPORAL_VALIDATION.md) — hindsight-control infrastructure: CANA temporal compliance, cutoff prompting/MHEB, HindsightBench, Ranke-4B and vintage-consistent forecasting; proposes source-selection/mapping-level hindsight tests.
 - [`EVIDENCE_DEPENDENCE.md`](EVIDENCE_DEPENDENCE.md) — why several precedents may not provide several independent confirmations; distinguishes institutional, diffusion, technological, source and historiographic dependence.
@@ -39,7 +43,7 @@ Out of scope by default:
 - [`TECH_DEFENSE_PRECEDENT.md`](TECH_DEFENSE_PRECEDENT.md) — historical technology deployment as ML evidence plus the older military case-based planning/decision-support tradition.
 - [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
 - [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
-- [`../data/historical_analogy_validation.csv`](../data/historical_analogy_validation.csv) — temporal-validation and persuasion-risk evidence map.
+- [`../data/historical_analogy_validation.csv`](../data/historical_analogy_validation.csv) — temporal-validation, calibration, source-selection and persuasion-risk evidence map.
 - [`../data/historical_transfer_bench_schema.csv`](../data/historical_transfer_bench_schema.csv) — proposed structured schema for benchmark cases.
 
 ## Current calibration
@@ -77,5 +81,11 @@ A seventh result is that **competing-hypothesis machinery is a useful control ne
 An eighth result is that **forecast calibration can be trained directly**. OpenForecaster shows dedicated forecasting post-training can improve accuracy, calibration and consistency, while FutureSim shows chronological replay can evaluate search, memory, uncertainty and adaptation as predictions resolve. This suggests a historical-analogy architecture in which mechanism-rich precedent reasoning proposes hypotheses and a forecasting-trained controller is responsible for probability discipline, update behavior and abstention.
 
 A ninth result is that **source salience itself must be stress-tested**. Recent conflict-forecasting evidence shows parametric country priors can override available temporal evidence under extreme media-coverage asymmetry. For historical analogy this motivates entity masking, geographic transplantation, canonical-vs-obscure matched precedents and coverage-stratified retrieval evaluation; fluent familiarity is not evidence of source utility.
+
+A tenth result is that **generic boundary memory is no longer a clean gap**. OBAM learns shared-pattern/discriminative-rule boundaries from highly similar cases with conflicting outcomes, while ForecastCompass uses resolved forecasts to update factor and reasoning/calibration memory. The historical-specific frontier is narrower: attach the boundary to a particular source→target relation/projection and preserve it across revised open-event representations.
+
+An eleventh result is that **CANA's own theory names the unresolved transfer problem**. Cross-analogy confirmation can reduce structural-identification error `δ_s`, but the theory separately assumes a mechanism-transfer error bound `α_s^tr` once a position is confirmed. Current experiments strongly show that the scaffold changes retrieval and structural-analysis depth; they do not yet estimate or calibrate `α_s^tr` at scale. This makes empirical source→target transfer error, not generic analogy generation, the cleanest next target.
+
+A twelfth result is that **mechanism representations should be falsifiable, not treated as one machine-generated historical truth**. Recent causal-pathway work offers a middle object between verbal explanation and a full SCM: projection-relevant pathways with testable/falsifiable implications. This fits historical transfer better than an all-purpose event DAG and permits mechanism uncertainty to be scored separately from forecast probability.
 
 Finally, historical analogies are not rhetorically neutral. Experimental political-science evidence shows analogy-based justifications can increase confidence in leaders' decisions, while separate 2026 experiments show factually accurate LLM-generated historical framing can shift opinions. No direct study found here yet establishes the full chain from **AI-generated historical analogy to human decision change**, but the combined evidence makes precision/calibration a deployment-safety issue rather than a benchmark detail.
