@@ -18,10 +18,33 @@ Out of scope by default:
 - ordinary RAG over historical documents;
 - historical research automation without source→target analogical transfer.
 
-Start with [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md).
+## Start here
 
-For the forecasting lineage from structured expert analogy to statistical episodes, trajectory matching and mechanism-level event analogy, see [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md).
+- [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md) — current direct LLM line and revised capability/gap assessment; includes the important calibration that CANA already models per-analogy limitations and difference awareness.
+- [`APPLICATION_DOMAINS.md`](APPLICATION_DOMAINS.md) — foreign policy, conflict forecasting, epidemics, macro/finance, military/intelligence and technology/foresight applications.
+- [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — lineage from structured expert analogy to statistical episodes, trajectory matching and mechanism-level event analogy.
+- [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
+- [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
+- [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
 
-Structured application map: [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv).
+## Current calibration
 
-The current direct core is small: **Past Meets Present (ACL 2025) → Analogical Deep Research / CANA (2026)**. The first focuses on historical analogue acquisition; the second turns historical analogies into mechanism-aligned, multi-source evidence for foresight. Surrounding applications include political-analogy detection, strategic decision support, statistical historical-episode interpretation, and historical-pattern forecasting.
+The direct modern LLM core remains small but clear:
+
+`Past Meets Present (ACL 2025)`
+
+`→ historical analogue acquisition`
+
+`→ Analogical Deep Research / CANA (2026)`
+
+`→ mechanism-aligned retrieval + explicit per-analogy limitations + differentiated multi-precedent integration`.
+
+Surrounding applications are technically more mature in narrower representations: conflict and epidemic trajectory matching, macroeconomic episode decomposition, temporal knowledge-graph replay, and macro-contextual precedent retrieval.
+
+The sharpest remaining frontier is **not simply disanalogy detection**. CANA already scores where an analogy breaks and includes per-analogy limitations in its Structural Analogy Brief. The harder unresolved step is to turn those limitations into **projection-level transfer control**:
+
+`p1 licensed / p2 conditional / p3 vetoed / p4 requires evidence`,
+
+with calibrated uncertainty, competing mechanism representations, dependence-aware multi-precedent evidence and persistent applicability memory.
+
+A second high-level result is the current **representation/calibration frontier**: narrow historical analogues (past observations, trajectories, macro regimes) can be tested rigorously out of sample, while semantically rich event/mechanism analogies are much harder to calibrate. The interesting engineering target is to move the former's empirical discipline upward without flattening the latter's historical structure.
