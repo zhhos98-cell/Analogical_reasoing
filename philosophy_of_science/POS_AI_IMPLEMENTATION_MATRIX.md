@@ -2,38 +2,45 @@
 
 **Snapshot: 21 August 2026.**
 
-This matrix prevents two symmetric mistakes:
+This matrix prevents three symmetric mistakes:
 
-1. claiming a philosophy-of-science distinction is a novel AI idea when modern systems already implement it under another name;
-2. assuming a modern analogy module satisfies an epistemic constraint merely because its output is fluent or structurally aligned.
+1. claiming a philosophy-of-science distinction is a novel AI idea when symbolic or modern AI already implements it under another name;
+2. assuming a modern analogy module satisfies an epistemic constraint merely because its output is fluent or structurally aligned;
+3. confusing an old computational object with the still-open problem of learning/calibrating that object in foundation-model representations.
 
 ## Matrix
 
-| PoS control problem | Contemporary formulation | Closest current AI implementation | What the AI work has actually achieved | Remaining interface |
+| PoS control problem | Contemporary formulation | Closest AI implementation / prior art | What AI has actually achieved | Remaining interface |
 |---|---|---|---|---|
 | **representation formation** | source/target descriptions and metrics are non-unique | YARN; relational abstraction architectures; LLM abstraction | raw narratives can be decomposed/abstracted before structural mapping; abstraction improves mapping | select/revise abstraction based on downstream epistemic performance rather than fixed levels/prompts |
 | **dynamic context / rerepresentation** | source, target and reasoning context change during analogy | AAR iterative `thinking → analogizing → contextualizing`; general agent belief/state revision | iterative analogue trajectories and contextualization exist | typed revision of source vs target vs relevance context after transfer failure; detect destructive abstraction/contraction |
 | **source relevance** | similarity is not inferential relevance | RA-RFT reasoning-aware retriever | retriever learns expected downstream reasoning benefit rather than semantic overlap | relevance is mostly source/task-level; need projection-specific relevance and target-context conditions |
 | **mapping** | structural correspondence is necessary but not sufficient | YARN; SME/FAME hybrids; mechanistic transformer probes | explicit structural mapping can be improved by learned abstractions | preserve uncertainty over competing mappings/representations; mapping success must not imply transfer license |
-| **bridge / meta-rule** | mapped feature `f` supports projection `g` only via background relevance relation | no clear general direct implementation; CANA mechanism role is partial analogue | some systems align mechanisms/roles and use them for projection | explicit learned `f → g` relevance operator with exception/context conditions and separate evidence support |
+| **bridge / determination / meta-rule** | mapped feature `f` supports projection `g` only via background relevance relation | Davies–Russell determination rules (IJCAI 1987); later symbolic analogy systems; Zwirn-style meta-rules; CANA mechanism roles are partial modern analogue | explicit relevance/determination rules are established computational prior art in symbolic AI | learn/validate probabilistic `f → g` rules from open representations; exception/context boundaries; independent evidence and continual revision |
 | **comparability evidence** | logical transfer premise needs independent evidential warrant | causal transportability / transferability estimation in structured domains; CANA grounded mechanism claims | structured domains can estimate transportability; open-event agents can cite source/target evidence | separate model-generated comparability premise from independent evidence that premise holds; circularity control |
 | **projection-level selective transfer** | good analogy for X/Y does not automatically license inferred property Z | legal precedent distinguishing; CBR adaptation; historical CANA limitations | systems can reject/adapt sources and describe limitations | general open-representation `LICENSED / CONDITIONAL / VETOED / UNKNOWN` for each projected claim |
 | **uncertainty / practical commitment** | uncertain extrapolation assumptions require managed confidence/action thresholds | forecasting-trained LMs; abstention/selective prediction; causal bounds | probability calibration and abstention can be trained | uncertainty tied to specific bridge assumptions/projections rather than only final answer confidence |
 | **counter-hypotheses / analogical abduction** | analogy proposes explanatory hypothesis to be compared against rivals | agentic search; CANA multi-source; research agents | systems can retrieve/generate several candidate sources/hypotheses | active search for discriminating counter-analogues and evidence, not just additional support |
-| **robustness** | agreement under varied auxiliaries may identify invariant core but is not automatically empirical confirmation | CANA cross-analogy confirmation; diverse retrieval; ensemble reasoning | multiple analogues can reinforce a structural role | vary assumptions intentionally; estimate redundancy; distinguish model-level robustness from target confirmation |
+| **robustness** | agreement under varied auxiliaries may identify invariant core but is not automatically empirical confirmation | CANA cross-analogy confirmation; diverse retrieval; ensemble reasoning | multiple analogues can reinforce a structural role | vary/remove auxiliaries intentionally; estimate redundancy; distinguish model-level robustness from target confirmation |
 | **external validation** | successful source/model becomes stronger evidence only after model-external/target validation | scientific-discovery experiments; outcome resolution; mechanism falsification tools | source-derived hypotheses can sometimes be tested against target outcomes | explicit validation-state memory and projection-specific upgrade/downgrade of source families |
 | **localism / domain warrant** | same transfer grammar may require field-specific evidential norms | modular tool/agent architectures | general controllers can call domain tools | no established shared analogy controller whose warrant predicates/falsifiers are learned or specified locally by scientific domain |
-| **representation revision after failure** | failed analogy can rationally change concepts/feature space | general failure-memory/state-revision agents; DNN feature learning | agents can diagnose/repair steps and update memory | attribute failure to representation vs relevance vs applicability, revise the correct layer, and show held-out benefit |
+| **representation revision after failure** | failed analogy can rationally change concepts/feature space | general failure-memory/state-revision agents; DNN feature learning; context-update theory | agents can diagnose/repair steps and update memory | attribute failure to representation vs relevance vs applicability, revise the correct layer, and show held-out benefit |
 
 ---
 
-# 1. Where contemporary AI is already ahead of a simplistic philosophy import
+# 1. Where AI prior art already blocks weak novelty claims
 
 Several PoS slogans would be too weak as engineering contributions.
 
 ### `Use structural similarity instead of surface similarity`
 
 Already implemented/attacked by YARN, relational architectures, CANA, reasoning-aware retrieval and classical structure-mapping hybrids.
+
+### `Use relevance/determination rules`
+
+Already explicit in symbolic AI. Davies & Russell's IJCAI-87 work defines determination rules precisely to specify the domain knowledge that grounds analogical projection and relevance.
+
+The open problem is **not the existence of a bridge-rule layer**. It is learning, calibrating and revising those rules in open representation spaces where variables, relations and contexts are themselves induced.
 
 ### `Use multiple analogies`
 
@@ -49,11 +56,11 @@ Agent memory, CBR, ForecastCompass/OBAM and related systems already learn from r
 
 ---
 
-# 2. Where philosophy of science still seems to add a genuinely missing type
+# 2. Where the contemporary PoS synthesis may still add a useful missing state
 
-The strongest candidates are not full architectures; they are **state variables / labels** absent from standard analogy pipelines.
+The strongest candidates are not newly invented full architectures; they are **state separations / labels** that are rarely explicit together in modern foundation-model analogy pipelines.
 
-## A. Bridge/relevance object
+## A. Learned/open-world bridge state
 
 ```text
 mapping:
@@ -62,11 +69,14 @@ mapping:
 bridge/meta-rule:
   sameness/difference on f is relevant to projected g under C
 
+support for bridge:
+  independent evidence E
+
 projection:
   infer candidate g(T)
 ```
 
-Most systems collapse the second and third lines.
+Symbolic AI supplied determination rules. The modern experiment is whether an LLM system benefits from **inducing and maintaining the rule plus its evidence/boundary**, rather than leaving it implicit in end-to-end generation.
 
 ## B. Comparability-evidence object
 
@@ -75,7 +85,7 @@ assumption A: source and target share mechanism m
 support E_A: independent evidence for A
 ```
 
-Most systems can state A; fewer distinguish `A is useful if true` from `we have evidence A is true`.
+Many systems can state A; fewer distinguish `A is useful if true` from `we have evidence A is true`.
 
 ## C. Validation state
 
@@ -117,6 +127,7 @@ target_representation:
 mapping:
 projection:
 bridge_rule:
+bridge_rule_provenance:
 bridge_evidence_positive:
 bridge_evidence_negative:
 critical_difference:
@@ -133,7 +144,7 @@ Then compare:
 ```text
 baseline mapping system
 vs
-+ relevance state
++ explicit learned bridge state
 vs
 + evidential state
 vs
@@ -142,7 +153,7 @@ vs
 + validation/revision state.
 ```
 
-This directly tests whether the PoS decomposition adds value.
+This directly tests whether the PoS decomposition adds value beyond older symbolic rules and modern end-to-end analogy.
 
 ---
 
@@ -165,6 +176,8 @@ Test whether the controller:
 
 - preserves correct mapping;
 - identifies relevant vs irrelevant shared structure;
+- recovers/learns the correct determination/meta-rule;
+- distinguishes the rule from evidence that the rule applies here;
 - changes probability only for the affected projection;
 - asks for evidence when bridge support is absent;
 - uses the counter-analogue diagnostically;
@@ -191,14 +204,14 @@ sample efficiency / evidence efficiency
 failure recovery
 ```
 
-If outcome-only RL + sufficiently large data learns the same behavior more efficiently, keep the PoS map as explanation/diagnosis rather than claim it as an architecture contribution.
+If outcome-only RL + sufficiently large data learns the same behavior more efficiently, or if classical symbolic/causal rule systems supply the needed relevance relation more reliably, keep the PoS map as explanation/diagnosis rather than claim it as an architecture contribution.
 
 ## Bottom line
 
-The current gap is no longer `AI needs philosophy to know that analogies have limits`.
+The current gap is no longer `AI needs philosophy to invent relevance rules`.
 
 The sharper research hypothesis is:
 
-> **Modern AI already supplies representation, retrieval, mapping and iterative search. Contemporary philosophy of science may contribute a missing typed control layer between mapping and epistemic commitment: relevance, independent comparability evidence, selective transfer, robustness status, external validation and typed revision.**
+> **Symbolic AI already knew how to represent determination/relevance rules, while modern foundation models supply flexible representation, retrieval and mapping. The possible missing interface is an open-world controller that learns those projection-specific rules, tracks independent evidence and exceptions, calibrates transfer, validates them against targets, and revises the right representational layer after failure.**
 
-Whether that layer deserves to exist is an empirical question.
+Whether that interface deserves to exist is an empirical question.
