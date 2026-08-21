@@ -9,9 +9,11 @@ The first priority is to understand the contemporary field on its own terms. His
 - **[FIELD_MAP.md](FIELD_MAP.md)** — operational map of the field: pipeline, communities, benchmark landscape, method families, empirical consensus, research gaps, and labs/groups to watch.
 - **[GAP_MAP.md](GAP_MAP.md)** — capability-boundary ledger: what current systems can actually do, where performance breaks, and which gaps are established versus frontier.
 - **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, and agent memory.
+- **[CONTROL_LAYER.md](CONTROL_LAYER.md)** — coverage matrix for emerging analogical controllers: who already does search, ranking, rejection, rebinding, verification, trajectory training, and memory update.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
 - **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
 - **[data/adjacent_fields.csv](data/adjacent_fields.csv)** — crosswalk from neighboring fields to analogical-reasoning gaps.
+- **[data/control_systems.csv](data/control_systems.csv)** — system-by-system control-layer coverage.
 - Category notes below — close reading of representative work.
 
 ## Latest watchlist — August 2026
@@ -58,9 +60,9 @@ By mid-2026 the most stable pattern is not “LLMs can” or “LLMs cannot” r
 - evidence that correct relational representations can exist internally even when **application/output fails**;
 - explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
 - open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance;
-- several neighboring fields are independently converging on the need for an explicit **control layer** that separates representation, retrieval, applicability, rejection, reuse, and verification.
+- several neighboring fields are independently converging on the need for an explicit **control layer** that separates representation, retrieval, applicability, rejection, reuse, verification, and learning from failure.
 
-See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
