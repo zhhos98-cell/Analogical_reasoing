@@ -120,11 +120,17 @@ The paper explicitly includes hard rejection rules for candidates such as aliase
 - multi-source confirmation is part of validation;
 - retrieval is iterative and reflective rather than one-shot.
 
+### A crucial condition on cross-analogy confirmation
+
+CANA's Bayesian confirmation theorem explicitly assumes that confirmation signals are **conditionally independent across analogies given the latent structural position**. Under that assumption, independent confirming analogies multiply the posterior odds; in the paper's calibration, two independent confirmations suffice for the chosen threshold.
+
+This turns an apparent downstream detail into a new control problem: a practical system must judge whether two retrieved analogies are genuinely independent enough to count as separate evidence. Shared data lineage, common causal templates, copied narratives, or one historical event downstream of another can create correlated confirmations.
+
 ### What remains weak or task-specific
 
 - most control logic is scaffolded in the framework rather than learned as a generic policy;
 - rejection rules are tailored to the ADR setting and are not a general analogical veto criterion;
-- independence among several confirming analogies remains an epistemic issue;
+- the theorem makes independence an explicit condition, while domain-general operational estimation of analogy dependence remains open;
 - no persistent learning from successful/failed transfers is demonstrated.
 
 **Assessment:** probably the richest current **explicit control pipeline**, but not yet a learned domain-general analogical controller.
@@ -200,6 +206,31 @@ It provides a candidate mechanism for **temporary analogical working state**: de
 
 ---
 
+## 7. Failure-driven agent learning: negative memory exists next door
+
+A correction to the strongest version of the `negative memory is empty` claim is necessary. The broader agent field now contains serious work that learns from failed trajectories rather than discarding them.
+
+- **AgentDebug / AgentErrorBench (2025)** diagnoses root-cause failures across memory, planning, reflection, action and system operations, then supplies targeted corrective feedback. The paper reports +24% all-correct accuracy, +17% step accuracy on error diagnosis, and up to 26% relative task-success improvement through iterative recovery.
+- **Learning from Failure (2026)** turns failed computer-use trajectories into diagnosed failure modes and inference-time code patches, raising OpenCUA-72B on OSWorld from 42.3% to 48.9% without additional model training.
+- **FORGE (2026)** compresses failed trajectories into reusable natural-language Rules and Examples and propagates high-performing memory across an agent population.
+- **Mistake Notebook Learning (2026)** clusters repeated failures and distills them into structured mistake notes intended to prevent recurrence.
+
+### What remains analogy-specific
+
+These systems mostly store action/policy failures such as bad plans, tool errors, or recurrent mistakes. A genuinely analogical negative memory needs a more relational artifact:
+
+`source S appeared applicable to target T`
+
+`→ mapping/projection failed specifically because condition X did not transfer`
+
+`→ future targets with X should down-weight S or this transfer pattern`.
+
+That is not merely remembering that an action failed. It is learning an **applicability boundary on a source–target relation**.
+
+**Assessment:** `negative memory` is an active adjacent field; **negative analogical memory** remains open.
+
+---
+
 # What is actually still empty?
 
 Putting these systems together makes the remaining holes much sharper.
@@ -212,17 +243,17 @@ CANA has explicit task-specific filters; abstention models can reject unanswerab
 
 This remains the cleanest underoccupied gap.
 
-## Empty column 2 — persistent negative analogical memory
+## Empty column 2 — analogy-specific applicability memory
 
-Current systems retrieve successful demonstrations or trajectories. Very little work asks the model to store:
-
-`this source looked useful, failed under condition X, and should be down-weighted when X recurs`.
+Generic agent systems now learn from failed trajectories. The underoccupied problem is storing **why a source–target transfer failed** as a reusable applicability boundary, and using that boundary to improve later source ranking and rejection precision.
 
 Without this, memory expansion can increase recall while leaving precision unchanged or worse.
 
-## Empty column 3 — evidence-sensitive cross-analogy integration
+## Empty column 3 — dependence-aware cross-analogy integration
 
-CANA cross-confirms multiple analogies, but a general system must estimate dependence among sources. Five analogies derived from the same hidden template or evidence lineage should not count as five independent confirmations.
+CANA makes the condition unusually explicit: its confirmation theorem assumes analogies are conditionally independent given the latent mechanism. A general system therefore needs to estimate dependence among sources rather than merely count agreeing cases.
+
+Five analogies derived from the same hidden template or evidence lineage should not count as five independent confirmations.
 
 ## Empty column 4 — representation revision triggered by failed transfer
 
@@ -230,7 +261,7 @@ Existing systems may iterate search or reflection, but there is little evidence 
 
 ## Empty column 5 — execution-grounded epistemic update
 
-Open-world science systems can generate and sometimes test candidates, but the full loop from experimental/tool outcome back into future analogical search and memory remains early.
+Open-world science systems can generate and sometimes test candidates, but the full loop from experimental/tool outcome back into future analogical search, applicability estimates, and memory remains early.
 
 ---
 
@@ -245,6 +276,7 @@ By August 2026, the field is no longer missing all the ingredients. It has:
 - generic abstention policies;
 - post-retrieval applicability/rebinding representations;
 - in-context operator schemas;
+- failure-driven agent memory;
 - tool- or outcome-based verification in selected domains.
 
 What it lacks is **integration under a learned policy with epistemic discipline**.
@@ -263,7 +295,9 @@ The frontier therefore looks less like inventing one new `analogy module` and mo
 
 `what to test`
 
-`what to remember`
+`what to remember from failure`
+
+`whether multiple confirming analogies are actually independent`
 
 `when a failed analogy should alter future representations and retrieval`.
 
