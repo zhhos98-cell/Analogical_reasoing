@@ -25,9 +25,12 @@ Out of scope by default:
 - [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — six forecasting forms: structured expert cases, statistical episodes, trajectory analogues, contextual regimes, historical-experience priors, and mechanism-level event analogies.
 - [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
 - [`TEMPORAL_VALIDATION.md`](TEMPORAL_VALIDATION.md) — hindsight-control infrastructure: CANA temporal compliance, cutoff prompting/MHEB, HindsightBench, Ranke-4B and vintage-consistent forecasting; proposes source-selection/mapping-level hindsight tests.
+- [`EVIDENCE_DEPENDENCE.md`](EVIDENCE_DEPENDENCE.md) — why several precedents may not provide several independent confirmations; distinguishes institutional, diffusion, technological, source and historiographic dependence.
+- [`RISK_AND_PERSUASION.md`](RISK_AND_PERSUASION.md) — evidence that historical analogy and AI-generated historical framing can increase confidence or shift attitudes; defines the untested but plausible confident-false-precedent risk.
 - [`TECH_DEFENSE_PRECEDENT.md`](TECH_DEFENSE_PRECEDENT.md) — historical technology deployment as ML evidence plus the older military case-based planning/decision-support tradition.
 - [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
 - [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
+- [`../data/historical_analogy_validation.csv`](../data/historical_analogy_validation.csv) — temporal-validation and persuasion-risk evidence map.
 
 ## Current calibration
 
@@ -47,10 +50,14 @@ The sharpest remaining frontier is **not simply disanalogy detection**. CANA alr
 
 `p1 licensed / p2 conditional / p3 vetoed / p4 requires evidence`,
 
-with calibrated uncertainty, competing mechanism representations, dependence-aware multi-precedent evidence and persistent applicability memory.
+with calibrated uncertainty, competing mechanism representations, dependence-aware multi-precedent evidence and persistent applicability memory. A targeted negative search in this branch has not yet found a general open-event system that makes this projection-level license/veto object explicit; treat that as a **high-confidence open frontier, not a proof of absence**.
 
 A second high-level result is the current **representation/calibration frontier**: narrow historical analogues (past observations, trajectories, macro regimes) can be tested rigorously out of sample, while semantically rich event/mechanism analogies are much harder to calibrate. The interesting engineering target is to move the former's empirical discipline upward without flattening the latter's historical structure.
 
 A third result is historical continuity in the engineering problem itself. 1980s–2000s foreign-policy and military AI already explored precedent-based logic, case reuse/adaptation and difference-aware decision support. Foundation models reverse the old bottleneck: representation/search is dramatically more flexible, while explicit applicability control remains comparatively underdeveloped.
 
 A fourth result is that **temporal validity must be treated as part of analogy validity**. A report can obey an explicit cutoff while source selection and mapping are still influenced by parametric knowledge of the target's realized future. Historical-analogy evaluation therefore needs temporal controls at more than the final-text layer: prompt-level cutoff tests, black-box hindsight audits, and where possible hard time-locked or vintage-consistent baselines.
+
+A fifth result is that **multi-precedent confirmation needs dependence control**. CANA already filters obvious identity/sibling-trivial cases and its theory explicitly requires conditional independence. The unresolved part is subtler historical dependence: policy diffusion, institutional genealogy, technological lineage, common shocks, shared source datasets and historiographic inheritance can make several analogies behave like fewer independent observations.
+
+Finally, historical analogies are not rhetorically neutral. Experimental political-science evidence shows analogy-based justifications can increase confidence in leaders' decisions, while separate 2026 experiments show factually accurate LLM-generated historical framing can shift opinions. No direct study found here yet establishes the full chain from **AI-generated historical analogy to human decision change**, but the combined evidence makes precision/calibration a deployment-safety issue rather than a benchmark detail.
