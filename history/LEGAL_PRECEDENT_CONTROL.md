@@ -80,7 +80,7 @@ The key missing ingredient is supervision: legal cases supply authoritative outc
 ### Mullins, Legal Theory 2026
 
 **_Distinguishing and Reinterpreting in the Reason Model of Precedent_.**  
-Canonical: https://doi.org/10.1017/S1352325226000030 (see Cambridge Core publication page)
+Canonical: https://doi.org/10.1017/S1352325226100846
 
 Legal reasoning has a named operation for exactly the move historical analogy needs: **distinguishing**.
 
