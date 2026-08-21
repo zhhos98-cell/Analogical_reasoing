@@ -14,7 +14,7 @@ Out of scope by default:
 
 - generic history QA or history agents;
 - archival OCR / transcription / database construction;
-- historical roleplay or time-locked models unless they directly test historical analogy;
+- historical roleplay or time-locked models **unless used as validation infrastructure for analogy/foresight**;
 - ordinary RAG over historical documents;
 - historical research automation without source→target analogical transfer.
 
@@ -24,6 +24,7 @@ Out of scope by default:
 - [`APPLICATION_DOMAINS.md`](APPLICATION_DOMAINS.md) — foreign policy, conflict forecasting, epidemics, macro/finance, military/intelligence and technology/foresight applications.
 - [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — six forecasting forms: structured expert cases, statistical episodes, trajectory analogues, contextual regimes, historical-experience priors, and mechanism-level event analogies.
 - [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
+- [`TEMPORAL_VALIDATION.md`](TEMPORAL_VALIDATION.md) — hindsight-control infrastructure: CANA temporal compliance, cutoff prompting/MHEB, HindsightBench, Ranke-4B and vintage-consistent forecasting; proposes source-selection/mapping-level hindsight tests.
 - [`TECH_DEFENSE_PRECEDENT.md`](TECH_DEFENSE_PRECEDENT.md) — historical technology deployment as ML evidence plus the older military case-based planning/decision-support tradition.
 - [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
 - [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
@@ -51,3 +52,5 @@ with calibrated uncertainty, competing mechanism representations, dependence-awa
 A second high-level result is the current **representation/calibration frontier**: narrow historical analogues (past observations, trajectories, macro regimes) can be tested rigorously out of sample, while semantically rich event/mechanism analogies are much harder to calibrate. The interesting engineering target is to move the former's empirical discipline upward without flattening the latter's historical structure.
 
 A third result is historical continuity in the engineering problem itself. 1980s–2000s foreign-policy and military AI already explored precedent-based logic, case reuse/adaptation and difference-aware decision support. Foundation models reverse the old bottleneck: representation/search is dramatically more flexible, while explicit applicability control remains comparatively underdeveloped.
+
+A fourth result is that **temporal validity must be treated as part of analogy validity**. A report can obey an explicit cutoff while source selection and mapping are still influenced by parametric knowledge of the target's realized future. Historical-analogy evaluation therefore needs temporal controls at more than the final-text layer: prompt-level cutoff tests, black-box hindsight audits, and where possible hard time-locked or vintage-consistent baselines.
