@@ -97,7 +97,46 @@ This is not evidence that a fully deployed DoD historical-analogy controller exi
 
 ---
 
-## 5. The case/class frontier is now narrower
+## 5. Guan & Chen 2026 — historical analog retrieval + LLM rule compression under strict time hygiene
+
+**Mao Guan & Qian Chen, “Leakage-Aware Benchmarking of LLM Forecasting: Real-Time Nowcasts as the Decision-Time Input for Macro Factor Ranking,” ICML 2026 Workshop on AI Forecasting (non-archival).**  
+Canonical: https://arxiv.org/abs/2606.22719
+
+This is one of the closest contemporary examples of a learned system turning historical analogs into reusable decision guidance under a strict temporal cutoff.
+
+At each month-end, the system:
+
+```text
+constructs a decision-time macro state
+→ retrieves K=4 historical macro-analog months from ≥12 months earlier
+→ critic LLM compresses the analogs into ONE tactical rule
+→ rolling rule memory feeds an actor LLM
+→ actor ranks seven equity style factors
+```
+
+The evaluation is explicitly leakage-aware: CPI/unemployment are lagged to actual availability and unreleased inflation is represented by archived Cleveland Fed nowcasts available at the decision date.
+
+### Why this matters
+
+It realizes a compact form of:
+
+`historical analogs → abstraction/rule → target action`.
+
+That is closer to analogical transfer than a plain kNN reference class. It also creates a natural analogue to a future historical-event system where several past crises are compressed into one conditional mechanism lesson.
+
+### The most important result is a caution
+
+The full LLM pipeline reports a **median monthly Spearman rank IC of +0.154**, but the authors find that a simple kNN macro-analog baseline under the same time-safe information set recovers a comparable median signal. The LLM's residual advantage is concentrated in mean rank IC / extreme rankings and is statistically underpowered in the 36-month sample.
+
+This is a crucial benchmark-design lesson:
+
+> **the gain from rich LLM reasoning must be separated from the gain produced merely by retrieving a good historical neighborhood.**
+
+A CANA-like system should therefore be compared against strong non-generative analogue/reference-class baselines using exactly the same candidate-source universe and temporal constraints.
+
+---
+
+## 6. The case/class frontier is now narrower
 
 The broad idea
 
@@ -123,7 +162,7 @@ No general open-event foundation-model system found in this sweep closes that lo
 
 ---
 
-## 6. Why the outside view should not simply dominate
+## 7. Why the outside view should not simply dominate
 
 A pure reference-class system can be wrong when the target contains a genuinely exceptional mechanism. Historical analogy is valuable precisely because it can represent the reason for deviation.
 
@@ -151,7 +190,7 @@ The point is not to force all reasoning back to base rates. It is to make **hist
 
 ---
 
-## 7. Implication for Historical Transfer Bench
+## 8. Implication for Historical Transfer Bench
 
 The benchmark should include a **case-vs-class conflict track**.
 
@@ -168,14 +207,15 @@ Score whether the model can:
 2. correctly deviate from the base rate when a target-specific mechanism is well supported;
 3. identify when the reference class itself is invalid/too heterogeneous;
 4. report uncertainty rather than choose one side mechanically;
-5. state which claim changes when case evidence and class evidence conflict.
+5. state which claim changes when case evidence and class evidence conflict;
+6. outperform a strong time-safe kNN/reference-class baseline rather than merely redescribe its signal.
 
 ---
 
 ## Bottom line
 
-The literature falsifies any claim that `case analogy + outside view` is an unexplored idea. It has empirical and forecasting precedents going back at least to Lovallo–Clarke–Camerer and is now being modernized through ML-enabled reference-class construction.
+The literature falsifies any claim that `case analogy + outside view` is an unexplored idea. It has empirical and forecasting precedents going back at least to Lovallo–Clarke–Camerer and is now being modernized through ML-enabled reference-class construction and leakage-aware LLM analog retrieval.
 
 The defensible 2026 frontier is:
 
-> **Can a foundation model build semantically rich historical precedents and a statistically calibrated reference class from the same open event universe, then use both to control individual historical lessons rather than merely produce a persuasive analogy narrative?**
+> **Can a foundation model build semantically rich historical precedents and a statistically calibrated reference class from the same open event universe, then demonstrate incremental value over strong analogue baselines by controlling individual historical lessons rather than merely producing a persuasive analogy narrative?**
