@@ -28,7 +28,7 @@ A working control loop is:
 
 `→ store success/failure boundary`
 
-`→ update future retrieval and control`
+`→ update future representation, retrieval, and control`
 
 ---
 
@@ -44,6 +44,8 @@ Legend: `✓` explicit/core; `~` partial/implicit/task-specific; `—` largely a
 | **Abstain-R1 / detection-control line** | ~ | — | — | — | ✓ | — | ✓ / stop | ✓ answerability | ✓ | ✓ | — |
 | **QCR trajectory reuse** | — | held fixed | held fixed | ✓ applicability conditions | ~ | ✓ | ✓ | ✓ | — | — | — |
 | **BDH-CQ** | ✓ latent task state | demos supplied | — | ~ operator induction | — | ✓ query-conditioned | ✓ | ~ output based | ✓ recurrent latent | ✓ via training | ~ transient recurrent memory |
+| **BALAR** | ✓ dynamic Bayesian state | active information seeking | information gain | state sufficiency | ~ | ✓ state update | ✓ | posterior update | ✓ | outer-loop, no fine-tuning | ✓ online belief state |
+| **WorldEvolver** | ✓ evolving world-model context | transition retrieval | confidence filter | prediction applicability | ✓ low-confidence foresight filter | ✓ mismatch-driven revision | ✓ planning | ✓ prediction–observation | ✓ | explicit controller | ✓ episodic + semantic context |
 
 The table matters because **none of these systems has all columns**. Progress is modular and distributed across different research communities.
 
@@ -231,6 +233,30 @@ That is not merely remembering that an action failed. It is learning an **applic
 
 ---
 
+## 8. Active reasoning and world-model revision: representation revision also exists next door
+
+The broader active-reasoning field shows that state revision itself is becoming an explicit controller operation.
+
+- **BALAR (2026)** maintains a structured Bayesian belief over latent states, selects questions by expected mutual information, and **dynamically expands its state representation when the current state space is insufficient**.
+- **Information Self-Locking (ICLR 2026)** decomposes active reasoning into Action Selection and Belief Tracking and shows that weakness in either creates a feedback loop that traps RL agents in low-information regimes. Directional critiques help escape this self-locking and bring reported gains of up to 60% across seven datasets.
+- **WorldEvolver (2026)** revises deployment-time world-model context from prediction–observation mismatches: episodic memory stores real transitions, semantic memory distills persistent heuristic rules, and selective foresight filters low-confidence predictions.
+
+### What remains analogy-specific
+
+These systems revise a belief state or world model when new observations contradict predictions. The still-underoccupied analogical problem is attribution and rerepresentation:
+
+`analogical transfer failed`
+
+`→ was the source bad, the alignment bad, the projected relation invalid, or the target representation itself wrong?`
+
+`→ if representation was wrong, revise the relational decomposition and repeat source search/mapping.`
+
+That requires failure credit assignment across the analogy pipeline rather than generic replanning or belief update.
+
+**Assessment:** generic representation/belief revision is active; **mapping-failure-triggered relational rerepresentation** remains open.
+
+---
+
 # What is actually still empty?
 
 Putting these systems together makes the remaining holes much sharper.
@@ -255,9 +281,13 @@ CANA makes the condition unusually explicit: its confirmation theorem assumes an
 
 Five analogies derived from the same hidden template or evidence lineage should not count as five independent confirmations.
 
-## Empty column 4 — representation revision triggered by failed transfer
+## Empty column 4 — analogy-triggered relational rerepresentation
 
-Existing systems may iterate search or reflection, but there is little evidence of a learned loop in which a failed transfer changes the **target representation itself**, not only the next retrieved example.
+Generic belief/state revision is now an active field. The narrower unresolved loop is:
+
+`transfer/mapping failure → localize the failure to representation vs retrieval vs mapping vs projection → revise the relational representation if needed → re-run source search and alignment`.
+
+Current analogy systems iterate retrieval and reflection, but there is little evidence of a learned, domain-general credit-assignment mechanism that uses transfer failure to revise the relational ontology/decomposition itself.
 
 ## Empty column 5 — execution-grounded epistemic update
 
@@ -277,9 +307,10 @@ By August 2026, the field is no longer missing all the ingredients. It has:
 - post-retrieval applicability/rebinding representations;
 - in-context operator schemas;
 - failure-driven agent memory;
+- active belief/state revision;
 - tool- or outcome-based verification in selected domains.
 
-What it lacks is **integration under a learned policy with epistemic discipline**.
+What it lacks is **integration under a learned policy with epistemic discipline and pipeline-level credit assignment**.
 
 The frontier therefore looks less like inventing one new `analogy module` and more like learning a controller over existing capabilities:
 
@@ -299,6 +330,8 @@ The frontier therefore looks less like inventing one new `analogy module` and mo
 
 `whether multiple confirming analogies are actually independent`
 
-`when a failed analogy should alter future representations and retrieval`.
+`which stage caused a failed transfer`
+
+`when that failure should alter future representations and retrieval`.
 
 That is the strongest current formulation of the remaining engineering problem.
