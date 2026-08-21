@@ -88,7 +88,45 @@ The key is that the analogue itself predicts **what evidence should be searched 
 
 ---
 
-## 3. Difference localization
+## 3. Wang 2026 — outcome features as observable traces of singular causal relations
+
+**Yafeng Wang, “Process Tracing and the Problem of Evaluating Causal Relationships Within a Case,” _Philosophy of the Social Sciences_ 56(4), 2026, 311–346.**  
+DOI: https://doi.org/10.1177/00483931261441189
+
+Wang addresses a live problem in process tracing: even if we posit a mechanism inside one case, how can within-case observations evaluate the **singular causal links** in that mechanism when the obvious counterfactual is unavailable?
+
+The proposed partial solution is highly relevant to analogical transfer. Singular causal relations can leave observable traces in the **detailed features of outcomes**. Different causes may generate outcomes of the same broad type while producing different characteristic features.
+
+The controller can therefore ask:
+
+```text
+If mechanism edge X→Y is genuinely active in the target,
+what distinctive feature F should appear in Y or the downstream outcome?
+```
+
+and compare competing mechanisms by their predicted feature signatures.
+
+### AI translation
+
+```yaml
+candidate_causal_edge: X->Y
+predicted_outcome_features:
+  - F1
+  - F2
+observed_features:
+  - F1
+missing_features:
+  - F2
+alternative_mechanism_predictions:
+  M2: [F1, F3]
+causal_edge_update:
+```
+
+This makes a mechanism hypothesis produce **local, falsifiable observational expectations**, rather than relying only on a holistic event-graph score.
+
+---
+
+## 4. Difference localization
 
 One of CPT's most useful intuitions is that source–target differences need not invalidate every projection.
 
@@ -106,7 +144,7 @@ This is stronger than whole-source accept/reject.
 
 ---
 
-## 4. Relation to current AI failures
+## 5. Relation to current AI failures
 
 Resolved forecasting failures such as the BTF pattern-break cases have the same shape:
 
@@ -120,15 +158,16 @@ CPT suggests a better controller architecture:
 
 1. infer the process that generated the source pattern;
 2. identify likely breakpoints when moving to target;
-3. query evidence specifically at those breakpoints;
-4. bind each projected claim to the mechanism stages it depends on;
-5. update only affected projections.
+3. derive the fingerprints/outcome features expected under the transferred mechanism;
+4. query evidence specifically at those breakpoints/features;
+5. bind each projected claim to the mechanism stages it depends on;
+6. update only affected projections.
 
 This converts `difference awareness` into **causal credit assignment**.
 
 ---
 
-## 5. Comparison with full causal-graph generation
+## 6. Comparison with full causal-graph generation
 
 A full event graph asks the model to solve too much at once:
 
@@ -159,7 +198,7 @@ Status: UNKNOWN / acquire evidence about Y.
 
 ---
 
-## 6. Active evidence acquisition
+## 7. Active evidence acquisition
 
 CPT naturally yields an **active reasoning policy**.
 
@@ -177,13 +216,13 @@ Candidate questions target:
 - actor/institution changes;
 - causal direction;
 - mediator/moderator activation;
-- fingerprints that discriminate competing pathways.
+- fingerprints/outcome features that discriminate competing pathways.
 
 This links philosophy of extrapolation directly to active search / research-agent design.
 
 ---
 
-## 7. What CPT does not solve
+## 8. What CPT does not solve
 
 CPT assumes we have enough background knowledge to identify:
 
@@ -206,9 +245,9 @@ and should choose evidence that discriminates not only transfer status but compe
 
 ---
 
-## 8. Benchmark translation
+## 9. Benchmark translation
 
-Add a `mechanism_breakpoint` track to Historical Transfer Bench / general analogical-transfer evaluation.
+Add a `mechanism_breakpoint` / `outcome_fingerprint` track to Historical Transfer Bench / general analogical-transfer evaluation.
 
 Each item contains:
 
@@ -219,7 +258,8 @@ projection_dependency_nodes:
 candidate_difference_nodes:
 critical_difference_node:
 target_evidence:
-diagnostic_fingerprint:
+predicted_outcome_features:
+alternative_mechanism_features:
 ```
 
 Metrics:
@@ -227,13 +267,14 @@ Metrics:
 - breakpoint localization accuracy;
 - projection-specific boundary response;
 - evidence-query efficiency;
-- fingerprint selection precision;
+- fingerprint/outcome-feature selection precision;
+- causal-link discrimination;
 - false whole-source rejection rate;
 - transfer calibration after evidence acquisition.
 
 ---
 
-## 9. Why this matters for the PoS→AI bridge
+## 10. Why this matters for the PoS→AI bridge
 
 CPT changes the engineering question from:
 
@@ -241,7 +282,7 @@ CPT changes the engineering question from:
 
 into:
 
-> **Which parts of the source process does this projected claim rely on, where could target divergence break that process, and what evidence would tell us?**
+> **Which parts of the source process does this projected claim rely on, where could target divergence break that process, what observable traces should the transferred mechanism leave, and what evidence would discriminate it?**
 
 That is a much better formulation of open-world analogical transfer.
 
@@ -253,3 +294,4 @@ That is a much better formulation of open-world analogical transfer.
 - Daniel Steel, “A New Approach to Argument by Analogy: Extrapolation and Chain Graphs,” *Philosophy of Science* 77(5), 2010. DOI: https://doi.org/10.1086/656543
 - Francesco Guala, “Extrapolation, Analogy, and Comparative Process Tracing,” *Philosophy of Science* 77(5), 2010. DOI: https://doi.org/10.1086/656541
 - Wendy S. Parker, “Comparative Process Tracing and Climate Change Fingerprints,” *Philosophy of Science* 77(5), 2010.
+- Yafeng Wang, “Process Tracing and the Problem of Evaluating Causal Relationships Within a Case,” *Philosophy of the Social Sciences* 56(4), 2026. DOI: https://doi.org/10.1177/00483931261441189
