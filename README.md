@@ -11,12 +11,16 @@ The first priority is to understand the contemporary field on its own terms. His
 - **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, agent memory, failure learning, and active belief/state revision.
 - **[CONTROL_LAYER.md](CONTROL_LAYER.md)** — coverage matrix for emerging analogical controllers: who already does search, ranking, rejection, rebinding, verification, trajectory training, state revision, and memory update.
 - **[TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md)** — focused bridge to modern Case-Based Reasoning and causal transportability; refines “analogy rejection” into open-world learned transfer validity.
+- **[INTERSECTION_SCAN.md](INTERSECTION_SCAN.md)** — adversarial four-way scan of learned representation × adaptation-aware retrieval × transfer validity × failure-driven update; states exactly what remains unclosed.
+- **[CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md)** — tracks the rapid neuralization of CBR: learned case selection, implicit adaptation, error→operator memory, and deployment-time continual learning.
 - **[PROGRAM_MAP.md](PROGRAM_MAP.md)** — research-program map: which groups have sustained architecture/evaluation/agent/discovery programs and which gaps still have no clear owner.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
 - **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
 - **[data/adjacent_fields.csv](data/adjacent_fields.csv)** — crosswalk from neighboring fields to analogical-reasoning gaps.
 - **[data/control_systems.csv](data/control_systems.csv)** — system-by-system control-layer coverage.
 - **[data/transfer_validity.csv](data/transfer_validity.csv)** — source–target validity, adaptation, failure-control, and uncertainty mechanisms across CBR and causal transportability.
+- **[data/intersection_scan.csv](data/intersection_scan.csv)** — system-by-system coverage of the four-way frontier intersection.
+- **[data/cbr_llm_convergence.csv](data/cbr_llm_convergence.csv)** — modern CBR/LLM systems classified by retrieval unit, adaptation style, failure signal, and memory update.
 - **[data/programs.csv](data/programs.csv)** — program maturity, key people/networks, strongest gaps, and missing layers.
 - Category notes below — close reading of representative work.
 
@@ -68,11 +72,13 @@ By August 2026 the most stable pattern is not “LLMs can” or “LLMs cannot�
 - explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
 - open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance;
 - several neighboring fields are independently converging on an explicit **control layer** separating representation, retrieval, applicability, rejection, reuse, verification, belief revision, and learning from failure;
-- modern CBR already owns much of the `retrieve → adapt/reuse → detect failure → revise → retain` problem under explicit case representations;
+- modern CBR already owns much of the `retrieve → adapt/reuse → detect failure → revise → retain` problem and is itself becoming increasingly LLM- and learned-policy-based;
 - causal transportability already owns a strong formal version of `when is source→target transfer valid, and how uncertain is approximate transfer?`;
-- the remaining underoccupied frontier is therefore **open-world learned transfer validity**: integrate flexible learned relational representations with adaptation/failure control and calibrated source→target validity.
+- agent/RAG research already provides typed failure diagnosis, local repair, representation expansion, and failure-driven memory updates;
+- the remaining underoccupied frontier is therefore **open-world learned transfer validity**: integrate flexible learned relational representations with adaptation/failure control, claim-level source→target validity, and failure-driven relational rerepresentation;
+- importantly, ICCBR 2026 evidence suggests that conceptual modularity does **not** imply every adaptation stage should be a separate natural-language LLM call: explicit multi-stage adaptation can compound errors.
 
-See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md) for the refined source→target validity problem, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md) for the refined source→target validity problem, [INTERSECTION_SCAN.md](INTERSECTION_SCAN.md) for the current four-way frontier test, [CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md) for modern CBR convergence, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
