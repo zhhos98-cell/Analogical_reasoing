@@ -21,16 +21,19 @@ Out of scope by default:
 ## Start here
 
 - [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md) — current direct LLM line and revised capability/gap assessment; includes the important calibration that CANA already models per-analogy limitations and difference awareness.
+- [`HISTORICAL_TRANSFER_BENCH.md`](HISTORICAL_TRANSFER_BENCH.md) — benchmark design for selective historical transfer: hard negatives, partial transfer, no-valid-precedent cases, competing representations, hindsight arms, dependence controls and longitudinal applicability memory.
 - [`APPLICATION_DOMAINS.md`](APPLICATION_DOMAINS.md) — foreign policy, conflict forecasting, epidemics, macro/finance, military/intelligence and technology/foresight applications.
 - [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — six forecasting forms: structured expert cases, statistical episodes, trajectory analogues, contextual regimes, historical-experience priors, and mechanism-level event analogies.
 - [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
 - [`TEMPORAL_VALIDATION.md`](TEMPORAL_VALIDATION.md) — hindsight-control infrastructure: CANA temporal compliance, cutoff prompting/MHEB, HindsightBench, Ranke-4B and vintage-consistent forecasting; proposes source-selection/mapping-level hindsight tests.
 - [`EVIDENCE_DEPENDENCE.md`](EVIDENCE_DEPENDENCE.md) — why several precedents may not provide several independent confirmations; distinguishes institutional, diffusion, technological, source and historiographic dependence.
 - [`RISK_AND_PERSUASION.md`](RISK_AND_PERSUASION.md) — evidence that historical analogy and AI-generated historical framing can increase confidence or shift attitudes; defines the untested but plausible confident-false-precedent risk.
+- [`LEGAL_PRECEDENT_CONTROL.md`](LEGAL_PRECEDENT_CONTROL.md) — legal AI as an adjacent control model: analogical precedent retrieval, distinguishing, conflicting-precedent reliability/calibration, abstention and verified support paths.
 - [`TECH_DEFENSE_PRECEDENT.md`](TECH_DEFENSE_PRECEDENT.md) — historical technology deployment as ML evidence plus the older military case-based planning/decision-support tradition.
 - [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
 - [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
 - [`../data/historical_analogy_validation.csv`](../data/historical_analogy_validation.csv) — temporal-validation and persuasion-risk evidence map.
+- [`../data/historical_transfer_bench_schema.csv`](../data/historical_transfer_bench_schema.csv) — proposed structured schema for benchmark cases.
 
 ## Current calibration
 
@@ -46,7 +49,7 @@ The direct modern LLM core remains small but clear:
 
 Surrounding applications are technically more mature in narrower representations: conflict and epidemic trajectory matching, macroeconomic episode decomposition, temporal knowledge-graph replay, macro-contextual precedent retrieval, and ML over historical technology deployments. A separate macroeconomic line shows that history can also enter as a **prior over which past regimes deserve weight**, without any named precedent being explicitly retrieved.
 
-The sharpest remaining frontier is **not simply disanalogy detection**. CANA already scores where an analogy breaks and includes per-analogy limitations in its Structural Analogy Brief. The harder unresolved step is to turn those limitations into **projection-level transfer control**:
+The sharpest remaining frontier is **not simply disanalogy detection**. CANA already scores where an analogy breaks and includes per-analogy limitations in its Structural Analogy Brief, while ARN shows that near/far analogies and disanalogies can be benchmarked systematically in narrative tasks. The harder unresolved step is to turn a historical difference into **projection-level transfer control**:
 
 `p1 licensed / p2 conditional / p3 vetoed / p4 requires evidence`,
 
