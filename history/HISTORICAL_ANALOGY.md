@@ -6,296 +6,306 @@ This branch is deliberately narrow. It tracks systems that use **historical anal
 
 It excludes generic history QA, archive agents, OCR pipelines, historical-roleplay models, and broad AI-for-history work.
 
-The key question is:
+The central question is:
 
-> **What can AI already do with historical analogies, and where does the reasoning break?**
+> **What can AI already do with historical analogies, and exactly where does source→target inference still break?**
 
 ---
 
-## 1. Historical analogy acquisition — finding a past event for a present target
+## 1. Historical analogy acquisition — Past Meets Present
 
-### Li et al. — *Past Meets Present* (ACL 2025, Outstanding Paper)
+### Li et al., ACL 2025 Outstanding Paper
 
-**Nianqi Li, Siyu Yuan, Jiangjie Chen, Jiaqing Liang, Feng Wei, Zujie Liang, Deqing Yang, Yanghua Xiao.**  
+**Nianqi Li et al., _Past Meets Present: Creating Historical Analogy with Large Language Models_.**  
 Canonical: https://aclanthology.org/2025.acl-long.200/
 
-This is the clearest starting point for the modern LLM historical-analogy line. The task is explicitly **historical analogy acquisition**: given an event, retrieve or generate an analogous event from the past.
+The paper defines **historical analogy acquisition**: given a contemporary or unfamiliar event, retrieve or generate an analogous event from history.
 
-The paper compares dataset retrieval with free generation. It decomposes events into four dimensions — **topic, background, process, result** — and rewards abstract similarity while penalizing excessive literal/entity overlap. Free generation performs better than retrieval on average, and a self-reflection procedure that proposes candidates, evaluates them, and verifies existence through Wikipedia improves analogy quality and reduces stereotyped same-country/same-entity matches.
+It compares fixed-pool retrieval and free generation, decomposes events into **topic, background, process, result**, and uses self-reflection to reduce hallucination and stereotyped same-entity/same-country matches.
 
-Important empirical observations:
+### What it solves
 
-- popular/well-known analogies are much easier than general analogies, raising contamination/memorization concerns;
-- free generation beats fixed-pool retrieval by about 0.25 on the reported aggregate comparison;
-- gains from candidate-set expansion plateau after roughly five candidates;
-- the model often **accepts an early candidate rather than reflecting**, even when reflection is available;
-- changing the description/perspective on the same current event can produce a different historical analogue.
+`target event → plausible past source event`
 
-### What it really solves
+The important contribution is source acquisition. LLMs can generate non-obvious candidate precedents and reflection can improve candidate quality.
 
-`current event → candidate historical source event`
+### What it does not yet solve
 
-This is primarily **source acquisition**, not full analogical inference.
+A candidate may be plausible without establishing:
 
-### Main gap exposed
+- that source and target share the relevant mechanism;
+- which source relations can be transferred;
+- which differences matter enough to block a lesson;
+- whether use of the precedent improves a downstream forecast or decision.
 
-The method can produce a plausible historical analogue without establishing:
-
-- whether the underlying causal mechanism is genuinely shared;
-- which source-to-target relations are transferable;
-- which differences should veto a projected lesson;
-- whether the analogy improves prediction or decision quality.
-
-So the first modern stage is strong on **candidate generation**, weak on **historical lesson licensing**.
+The first modern stage is therefore relatively strong on **candidate generation**, much weaker on **historical lesson control**.
 
 ---
 
-## 2. Mechanism-level historical analogy for foresight
+## 2. Mechanism-level historical analogy — Analogical Deep Research / CANA
 
-### Chen et al. — *Analogical Deep Research* / CANA (2026)
+### Chen et al., 2026
 
-**Yongqiang Chen, Guangyi Chen, Yuewen Sun, Kun Zhang.**  
+**Yongqiang Chen, Guangyi Chen, Yuewen Sun, Kun Zhang, _Analogical Deep Research: Retrieving and Integrating Historical Analogies for Foresight Analysis_.**  
 Canonical: https://arxiv.org/abs/2607.13602
 
-This is the most advanced explicit historical-analogy reasoning system found in the current sweep.
+CANA is the most advanced explicit historical-analogy reasoning system found in this sweep. It reframes historical analogy as a **causal/mechanism alignment** problem rather than a semantic-similarity problem.
 
-The paper argues that useful historical analogy is not primarily a semantic-similarity problem. It is a **causal/mechanism alignment** problem. Each event receives both a descriptive representation and a mechanistic representation. The target is only partially observed at a cutoff time; the task is to retrieve historical cases that occupy corresponding structural roles and use their later trajectories to infer hidden target factors and possible futures.
+Each event has a descriptive representation and a mechanistic representation. The target is partially observed at a temporal cutoff. CANA decomposes the target into preconditions, temporal chains, mechanisms and outcomes; retrieves historical events by structural roles; and combines several partial analogies to infer hidden target factors.
 
-The system introduces two central ideas:
+The core principles are:
 
-1. **mechanism alignment** — search over causal/structural roles rather than surface similarity;
-2. **cross-analogy confirmation** — several partial historical analogies can jointly support a hidden structural factor even when no single case covers the whole target.
+1. **mechanism alignment** — useful precedents should align at causal/structural roles;
+2. **cross-analogy confirmation** — multiple partial precedents can jointly expose a hidden structural position that no single precedent covers.
 
-The 2008 financial-crisis example is a good illustration: the Panic of 1907, Japan after 1990, and LTCM 1998 each supply different parts of a common mechanism; recurring "amplifier" roles across them are used to hypothesize a hidden amplifier in the target.
+The 2008 financial-crisis example uses the Panic of 1907, Japan after 1990 and LTCM 1998 as different partial views of a recurrent structure. The recurring amplifier role is then used to hypothesize a hidden amplifier in the target.
 
-ADR-bench contains 15 targets across financial, geopolitical, and technology domains. Existing deep-research agents generally fail to proactively exploit useful historical analogies; CANA reports more than 10% improvement in historical-analogy retrieval/integration over the compared methods.
+### A critical calibration: CANA already models disanalogy
 
-### What it really solves
+It is too broad to say that current historical-analogy AI only optimizes similarity.
 
-`partially observed present event`
+CANA's **Structural Analogy Brief (SAB)** contains:
 
-`→ structural decomposition`
+- mechanism-level statements;
+- **limitations of each retrieved analogy**;
+- cross-analogy insights;
+- predicted hidden factors.
 
-`→ retrieve multiple historical events`
+ADR-bench also explicitly scores **difference awareness**:
 
-`→ align causal roles`
+- 0: no limitations;
+- 1: superficial difference;
+- 2: identifies **where the analogy breaks and why that matters**.
 
-`→ infer hidden factors / trajectories`
+Its cross-analogy rubric separately scores **analogy differentiation**: the report should state which insight comes from which precedent and why a given precedent is more informative for a specific aspect.
 
-This is a major step beyond *Past Meets Present*: historical analogy becomes an **evidential and forecasting operator**, not just a retrieved comparison.
+So the frontier has already moved beyond `find similarities` to:
 
-### Main gaps exposed
+`find structural similarity + articulate limitations + differentiate precedent roles`.
 
-- the causal graph/event decomposition is still generated under a fairly strong scaffold;
-- cross-analogy confirmation assumes sufficiently independent confirming sources;
-- transfer validity is stated at structural-role level but is not yet a calibrated claim-by-claim veto mechanism;
-- the benchmark remains small (15 target events);
-- open-world historical events contain contested causal interpretations, not a single oracle mechanism.
+### The remaining CANA gap
 
-This is currently the most important system to track if the branch is about historical analogy rather than historical AI generally.
+The limitations remain mainly **advisory analytical context**. They are not yet a general executable transfer controller of the form:
+
+`projection p1 → licensed`
+
+`projection p2 → licensed only after contextual rebinding`
+
+`projection p3 → veto because mechanism m differs`
+
+`projection p4 → unresolved; obtain evidence e before transfer`.
+
+ADR-bench's difference-awareness score is therefore a major advance, but **difference description is not yet projection-level transfer control**.
+
+Other open issues remain:
+
+- ADR-bench is small: 15 target events;
+- causal event representations are scaffolded and historical mechanisms may be contested;
+- cross-analogy confirmation relies on sufficiently independent sources;
+- the framework assumes a mechanism-transfer condition that a general system still has to estimate rather than presuppose;
+- evaluation is heavily rubric/LLM based.
 
 ---
 
-## 3. Historical analogies as signals of policy reasoning
+## 3. Historical analogies as observable policy signals
 
-### Tsvetkova — *Historical analogies as markers of decisions* (2026)
+### Tsvetkova, 2026
 
-**Natalia Tsvetkova.** *Humanities and Social Sciences Communications* 13, 547 (2026).  
+**Natalia Tsvetkova, _Historical analogies as markers of decisions: an LLM-assisted analysis in foreign policy_.**  
 Canonical: https://doi.org/10.1057/s41599-026-06930-9
 
-This uses AI differently. The model does not generate the analogy for a decision-maker. It detects **historical analogies already being used by political actors** and treats their appearance/repetition as a possible observable signal of policy direction.
+Here the model does not invent a precedent. It detects **past→present mappings already articulated by political leaders**.
 
-An LLM screens roughly 1,100 official documents from Bill Clinton, Vladimir Putin, and Xi Jinping. All candidate analogies are manually verified and classified as cognitive, rhetorical, or signaling. The study then places validated analogies chronologically against later policy trajectories.
+An LLM screens roughly 1,100 official documents from Bill Clinton, Vladimir Putin and Xi Jinping. Candidate analogies are manually verified and classified as cognitive, rhetorical or signaling. The validated analogies are then placed chronologically against policy decisions.
 
-### What it really solves
+### What it solves
 
-`large political corpus → detect explicit past→present mappings → classify function → use analogy as an intelligence signal`
+`large political corpus → detect actor-used historical analogy → expert validation → possible policy-intent signal`
 
-This is computational historical-analogy **detection**, not analogical reasoning by the model.
+This is an important second application of historical-analogy AI: use analogy itself as a feature of human decision-making.
 
-### Why it matters to this branch
+### Limit
 
-It shows a second real-world application: historical analogy can be a **feature to detect in decision processes**. Instead of asking “what history should we compare with?”, the system asks “which historical comparison is this actor already using?”
-
-### Main gap
-
-The method finds a correlative signal. It does not establish that the analogy caused the decision, nor does it test whether the actor's analogy was structurally valid.
+Occurrence and repetition of a precedent can be an observable marker without proving that the precedent causally produced the policy choice, or that the leader's analogy was a good one.
 
 ---
 
-## 4. Analogical decision support under uncertainty
+## 4. Forecasting by historical precedent has several computational forms
 
-### Sen, Workiewicz & Puranam — *Can LLMs Aid Analogical Reasoning for Strategic Decisions?* (Strategy Science, 2026)
+Historical analogy is not one technique. Current applications range from rich event mechanisms to deliberately narrow statistical representations.
 
-**Prothit Sen, Maciej Workiewicz, Phanish Puranam.**  
-Canonical: https://doi.org/10.1287/stsc.2025.0426
+### Conflict trajectories — Shape Finder / PaCE
 
-This is not restricted to historical events, so it belongs in the branch as an **adjacent application** rather than a core historical-analogy paper. But it directly tests the decision-support use case that historical analogy is supposed to serve.
+**Schincariol, Frank & Chadefaux, _Accounting for variability in conflict dynamics: A pattern-based predictive model_, Journal of Peace Research (2025).**  
+Canonical: https://doi.org/10.1177/00223433251330790
 
-Across business-style source/target problems, humans and LLMs show opposite error profiles:
+The system retrieves similar past fatality sequences with Dynamic Time Warping, follows their realized futures, and aggregates those futures into a forecast distribution.
 
-- humans: lower recall, higher precision;
-- LLMs: very high recall, lower precision, including internally coherent but spurious matches.
+`current conflict shape → historical trajectory analogues → realized analogue futures → calibrated predictive mixture`.
 
-The authors therefore propose a plausible near-term division of labour:
+This is much more empirically testable than rich event analogy, but similarity is predictive rather than causal.
 
-`LLM = expansive source/precedent generator`
+### Epidemic trajectories — HAL-Net
 
-`human = causal/contextual adjudicator`.
-
-### Why it matters for historical analogy
-
-Historical decision support is likely to fail in exactly this way: the danger is not lack of historical precedents but **too many plausible precedents**. This paper gives strong evidence that retrieval/generation and matching/adjudication should be treated as separate capabilities.
-
----
-
-## 5. Historical analogy as a forecasting primitive over temporal patterns
-
-### Zhang & Ji — HAL-Net (Expert Systems with Applications, 2026)
-
-**Chengying Zhang, Donghong Ji.**  
+**Zhang & Ji, Expert Systems with Applications 299 (2026), 130038.**  
 Canonical: https://doi.org/10.1016/j.eswa.2025.130038
 
-HAL-Net uses “historical analogy” in a narrower statistical sense. It searches past epidemic trajectories for analogous patterns using Dynamic Time Warping, selects a historical lag, and incorporates those precedents into long-range COVID forecasting across ten countries.
+HAL-Net finds historically analogous epidemic trajectories and integrates them into a deep forecasting architecture. The analogue is a temporal shape, not a richly interpreted historical event.
 
-The paper reports average improvements above 28% MAE and 32% RMSE relative to the strongest baseline used in the study, with historical precedent paths also serving as an interpretability device.
+### Macroeconomic episodes — Dual Interpretation
 
-### What it really solves
+**Goulet Coulombe, Göbel & Klieber, _Dual Interpretation of Machine Learning Forecasts_.**  
+Canonical: https://arxiv.org/abs/2412.13076
 
-`current time-series segment → analogous historical pattern → future trajectory forecast`.
+A wide class of ML forecasts can be expressed as weighted combinations of past observations. Those weights become a mathematically inspectable portfolio of historical economic episodes.
 
-### Why it is adjacent rather than central
+### Macro-contextual financial precedents — History Rhymes
 
-The analogue is a **shape/pattern precedent**, not a historically interpreted event with actors, institutions, mechanisms, and contested causal structure. Still, it demonstrates that “retrieve an analogous past trajectory and condition prediction on it” can be an effective engineering primitive.
+**Khanna et al., _History Rhymes: Macro-Contextual Retrieval for Robust Financial Forecasting_.**  
+Canonical: https://arxiv.org/abs/2511.09754
 
-This is useful as a lower-bound comparison for event-level historical analogy: time-series analogy works partly because the representation and transfer target are much more constrained.
+The method jointly embeds financial text and macro indicators, then retrieves only earlier periods with comparable macro contexts. It pushes historical-episode retrieval beyond pure time-series shape, but the relation remains learned proximity rather than explicit mechanism equivalence.
 
----
+These forecasting systems matter because they create a useful contrast:
 
-## 6. Historical counterfactuals as a testbed for analogical problem solving
+- narrow representations can be calibrated and evaluated out of sample;
+- rich event/mechanism representations capture more historical meaning but currently have weaker statistical validation.
 
-### Larraz & Corma — FCC rediscovery (Nature Communications, 2026)
-
-**Rafael Larraz, Avelino Corma.**  
-Canonical: https://doi.org/10.1038/s41467-026-70873-7
-
-This is another adjacent case. The analogue sources are cross-domain technical knowledge rather than historical events, but the experiment is explicitly historical: the model is restricted to pre-1936 literature and asked to reproduce a technical solution developed later, fluid catalytic cracking.
-
-Human analogical guidance increases model success dramatically. The study shows that historical reconstruction can provide a clean experimental structure:
-
-`knowledge available before t`
-
-`+ cross-domain analogy`
-
-`→ later solution`.
-
-### Relevance
-
-It demonstrates a concrete downstream use of analogy under a historical knowledge boundary: **rediscovery / invention from historically available sources**.
-
-It is not historical-analogy retrieval in the Khong/applied-history sense, so it stays adjacent.
+See `FORECASTING_ANALOGIES.md` and `APPLICATION_DOMAINS.md`.
 
 ---
 
-# Current application taxonomy
+## 5. Temporal event replay — AnRe
 
-| Application | Representative work | Source analogue | Output | Maturity |
-|---|---|---|---|---|
-| **historical analogue acquisition** | *Past Meets Present* | past event | ranked/generated historical case | established benchmark task |
-| **mechanism-based foresight** | ADR / CANA | multiple past events | hidden factor + future trajectory analysis | frontier / early system |
-| **analogy detection in political reasoning** | Tsvetkova | actor-invoked past event | policy-intent signal | real applied workflow |
-| **strategic precedent support** | Sen et al. | prior problem/case | candidate strategy / match | strong adjacent evidence |
-| **pattern precedent forecasting** | HAL-Net | past time-series trajectory | quantitative forecast | mature narrow-domain method |
-| **historically bounded rediscovery** | Larraz & Corma | cross-domain historical knowledge | technical solution | strong adjacent experiment |
+**Tang et al., _AnRe: Analogical Replay for Temporal Knowledge Graph Forecasting_, ACL 2025.**  
+Canonical: https://aclanthology.org/2025.acl-long.231/
+
+AnRe retrieves semantically similar historical events in temporal knowledge graphs, combines short- and long-term history, and constructs analogical reasoning examples for an LLM. It reports sizeable Hit@1 improvements over several LLM baselines on ICEWS/GDELT-style event forecasting.
+
+This is adjacent rather than central to historical analogy in the applied-history sense. The event ontology and relation labels are benchmark-defined, but it demonstrates a real `retrieve precedent → replay relation pattern → forecast event` architecture.
+
+---
+
+## 6. Strategic precedent support — the precision problem
+
+### Sen, Workiewicz & Puranam, Strategy Science 2026
+
+Canonical: https://doi.org/10.1287/stsc.2025.0426
+
+This work is not restricted to historical events, but it diagnoses the likely failure mode of historical decision support particularly well:
+
+- LLMs: high source recall, lower matching precision;
+- humans: lower source recall, higher precision.
+
+The danger is therefore increasingly **too many plausible precedents**, not too few.
+
+A plausible near-term division of labour is:
+
+`machine → expand precedent search`
+
+`human / selective controller → adjudicate applicability`.
 
 ---
 
 # What has actually been achieved?
 
-The field has moved through three visible stages:
+The direct LLM historical-analogy line now has at least four stages:
 
-### Stage 1 — retrieve or generate a historical parallel
+### Stage 1 — acquire a historical precedent
 
-*Past Meets Present* establishes that LLMs can generate useful historical candidates and can be pushed away from obvious same-entity stereotypes.
+*Past Meets Present* establishes candidate retrieval/generation.
 
-### Stage 2 — distinguish surface resemblance from mechanism similarity
+### Stage 2 — move from surface similarity to mechanism alignment
 
-ADR/CANA shows that generic deep-research agents still fail here. It makes causal/structural representation and multiple partial analogies explicit.
+CANA introduces structural decomposition and mechanism-oriented source search.
 
-### Stage 3 — use analogies as evidence rather than illustration
+### Stage 3 — articulate limitations and differentiate precedents
 
-CANA uses several historical cases to infer a hidden factor; Tsvetkova uses actor-articulated analogies as signals; HAL-Net conditions quantitative forecasts on historical precedent patterns.
+CANA's SAB and ADR-bench explicitly represent per-analogy limitations, difference awareness and which precedent contributes which insight.
 
-This third stage is only beginning.
+### Stage 4 — use multiple precedents as distributed evidence
+
+Cross-analogy confirmation allows several incomplete source cases to jointly support a hidden-factor inference.
+
+The next stage is not simply “notice differences.” It is to make those differences **control transfer at the level of individual projected claims**.
 
 ---
 
-# The historical-analogy-specific gaps
+# Revised historical-analogy gaps
 
-## HA1 — source acquisition is ahead of source adjudication
+## HA1 — source acquisition remains easier than source adjudication
 
-Models can propose many plausible historical parallels. They remain weaker at deciding which one has the **right causal structure** for the target.
+Machines can generate or retrieve many plausible precedents. Selecting the useful subset remains harder, especially in open-ended political and strategic settings.
 
-## HA2 — historical difference is not yet a first-class computational object
+## HA2 — disanalogy exists, but mostly as analysis rather than control
 
-Most systems optimize similarity/alignment. Serious historical analogy needs an explicit representation of **disanalogy**: which institutional, temporal, technological, demographic, ideological, or geopolitical difference breaks a proposed lesson.
+CANA already asks where an analogy breaks and why it matters. Applied-history practice also explicitly compares similarities and differences.
 
-## HA3 — claim-level transfer is missing
+The remaining problem is computationally sharper:
 
-A historical case should not be accepted or rejected wholesale. A system should be able to say:
+`identified disanalogy → change the allowed transfer set`.
 
-`analogy S supports claim p1`
+The system should connect a difference to the exact inference it blocks or weakens.
 
-`supports p2 only after rebinding/contextualization`
+## HA3 — claim-level transfer contracts remain missing
 
-`does not support p3 because condition X differs`
+A source case should rarely be accepted or rejected wholesale. A mature system should expose:
 
-`p4 remains uncertain`.
+```text
+source S
+matched mechanisms: r1, r2, r3
+limitations: d1, d2
+p1: licensed
+p2: conditional on C
+p3: vetoed because d1 breaks mechanism r3
+p4: unresolved; acquire evidence E
+confidence / bounds: ...
+```
 
-Current historical-analogy systems are not yet strong at this granularity.
+No general historical-analogy system found in this sweep makes this the learned control object.
 
-## HA4 — causal structures in history are contested
+## HA4 — historical mechanisms are contestable representations
 
-CANA can work with a mechanism graph, but historical events typically admit multiple causal decompositions. A mature system needs **mechanism uncertainty / competing historical interpretations**, not a single canonical event graph.
+A single event may admit several defensible causal decompositions. A robust system should preserve competing mechanism hypotheses rather than silently treating one generated graph as the event itself.
 
-## HA5 — analogy independence is difficult
+## HA5 — precedent dependence can create false confirmation
 
-Cross-analogy confirmation is powerful only when several analogies provide genuinely independent support. Historical cases often share source traditions, institutional families, diffusion chains, or the same retrospective narrative.
+Several source cases can share the same institutional lineage, diffusion process, source tradition or retrospective narrative.
 
-`three similar historical examples ≠ three independent pieces of evidence`.
+`number of precedents ≠ number of independent confirmations`.
 
-## HA6 — presentism and hindsight remain latent
+CANA makes independence theoretically consequential; operational estimation of dependence remains underdeveloped.
 
-Historical analogy for foresight is especially vulnerable to models knowing how source and target events eventually unfolded. Evaluation needs strict temporal cutoffs and contamination controls.
+## HA6 — temporal and hindsight leakage remain fundamental
 
-## HA7 — no mature analogical decision interface
+A foresight system must distinguish what is available at target cutoff from what the pretrained model knows about later outcomes. Time-safe retrieval helps but does not erase parametric hindsight.
 
-The near-term useful system probably should not emit one authoritative “best historical analogy.” It should expose:
+## HA7 — semantic richness and empirical calibration currently trade off
 
-- candidate sources;
-- structural correspondences;
-- disanalogies;
-- projected lessons;
-- vetoed lessons;
-- uncertainty;
-- source provenance;
-- what additional evidence would discriminate between competing analogies.
+Trajectory/episode systems have narrow representations but strong out-of-sample scoring. Event/mechanism systems are semantically richer but use much smaller benchmarks and more rubric-based evaluation.
 
-That interface is not yet standard.
+Bridging this divide is a major research target.
+
+## HA8 — there is no standard historical-analogy decision interface
+
+The useful output is unlikely to be one authoritative “best analogy.” It should expose competing precedents, correspondences, limitations, licensed/vetoed projections, uncertainty and evidence that would cause the system to revise or abandon a precedent.
 
 ---
 
 # Bottom line
 
-The modern historical-analogy line is **small but real**. It is not yet a large field. The clearest direct genealogy is:
+The modern direct line is still small, but it has progressed further than simple analogy generation:
 
-`Past Meets Present (2025): find historical analogues`
+`Past Meets Present (2025)`
 
-`→ ADR / CANA (2026): find mechanism-aligned analogues and integrate several of them for foresight`.
+`→ candidate historical source acquisition`
 
-Around that core are two important application directions:
+`→ CANA / ADR (2026)`
 
-- **detecting historical analogies humans are already using** in policy reasoning;
-- **using precedent analogies to improve decisions/forecasts** in strategy and structured time-series domains.
+`→ mechanism-aligned retrieval + explicit limitations + differentiated multi-precedent integration`.
 
-The most consequential remaining problem is not generating historical comparisons. It is **controlling what can legitimately be inferred from them**.
+Meanwhile, conflict, epidemic, macro and financial forecasting show that narrower historical-analogue representations can already deliver measurable predictive value.
+
+The strongest frontier question is therefore:
+
+> **Can a system preserve the semantic richness of event/mechanism analogy while acquiring the calibration, selective transfer, explicit uncertainty and failure feedback already possible in narrower forecasting or transfer-learning systems?**
