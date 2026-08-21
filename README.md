@@ -8,12 +8,14 @@ The first priority is to understand the contemporary field on its own terms. His
 
 - **[FIELD_MAP.md](FIELD_MAP.md)** — operational map of the field: pipeline, communities, benchmark landscape, method families, empirical consensus, research gaps, and labs/groups to watch.
 - **[GAP_MAP.md](GAP_MAP.md)** — capability-boundary ledger: what current systems can actually do, where performance breaks, and which gaps are established versus frontier.
-- **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, and agent memory.
-- **[CONTROL_LAYER.md](CONTROL_LAYER.md)** — coverage matrix for emerging analogical controllers: who already does search, ranking, rejection, rebinding, verification, trajectory training, and memory update.
+- **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, agent memory, failure learning, and active belief/state revision.
+- **[CONTROL_LAYER.md](CONTROL_LAYER.md)** — coverage matrix for emerging analogical controllers: who already does search, ranking, rejection, rebinding, verification, trajectory training, state revision, and memory update.
+- **[PROGRAM_MAP.md](PROGRAM_MAP.md)** — research-program map: which groups have sustained architecture/evaluation/agent/discovery programs and which gaps still have no clear owner.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
 - **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
 - **[data/adjacent_fields.csv](data/adjacent_fields.csv)** — crosswalk from neighboring fields to analogical-reasoning gaps.
 - **[data/control_systems.csv](data/control_systems.csv)** — system-by-system control-layer coverage.
+- **[data/programs.csv](data/programs.csv)** — program maturity, key people/networks, strongest gaps, and missing layers.
 - Category notes below — close reading of representative work.
 
 ## Latest watchlist — August 2026
@@ -60,9 +62,10 @@ By mid-2026 the most stable pattern is not “LLMs can” or “LLMs cannot” r
 - evidence that correct relational representations can exist internally even when **application/output fails**;
 - explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
 - open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance;
-- several neighboring fields are independently converging on the need for an explicit **control layer** that separates representation, retrieval, applicability, rejection, reuse, verification, and learning from failure.
+- several neighboring fields are independently converging on the need for an explicit **control layer** that separates representation, retrieval, applicability, rejection, reuse, verification, belief revision, and learning from failure;
+- research-program mapping shows that retrieval, architecture, far-transfer diagnosis, and causal-agent control now have identifiable communities, while analogy-specific rejection, pipeline failure attribution, and negative applicability memory remain comparatively orphaned.
 
-See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
