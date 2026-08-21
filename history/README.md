@@ -22,8 +22,9 @@ Out of scope by default:
 
 - [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md) — current direct LLM line and revised capability/gap assessment; includes the important calibration that CANA already models per-analogy limitations and difference awareness.
 - [`APPLICATION_DOMAINS.md`](APPLICATION_DOMAINS.md) — foreign policy, conflict forecasting, epidemics, macro/finance, military/intelligence and technology/foresight applications.
-- [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — lineage from structured expert analogy to statistical episodes, trajectory matching and mechanism-level event analogy.
+- [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md) — six forecasting forms: structured expert cases, statistical episodes, trajectory analogues, contextual regimes, historical-experience priors, and mechanism-level event analogies.
 - [`REPRESENTATION_LADDER.md`](REPRESENTATION_LADDER.md) — analogue representations from weighted historical observations through trajectory/regime/event schemas to causal structural roles; tracks the semantic-richness vs calibration tradeoff.
+- [`TECH_DEFENSE_PRECEDENT.md`](TECH_DEFENSE_PRECEDENT.md) — historical technology deployment as ML evidence plus the older military case-based planning/decision-support tradition.
 - [`COMPUTATIONAL_PREHISTORY.md`](COMPUTATIONAL_PREHISTORY.md) — Mefford, Schrodt and the 1980s–90s AI/international-politics precedent line; prevents false novelty claims about computational historical analogy.
 - [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv) — structured application map.
 
@@ -39,7 +40,7 @@ The direct modern LLM core remains small but clear:
 
 `→ mechanism-aligned retrieval + explicit per-analogy limitations + differentiated multi-precedent integration`.
 
-Surrounding applications are technically more mature in narrower representations: conflict and epidemic trajectory matching, macroeconomic episode decomposition, temporal knowledge-graph replay, and macro-contextual precedent retrieval.
+Surrounding applications are technically more mature in narrower representations: conflict and epidemic trajectory matching, macroeconomic episode decomposition, temporal knowledge-graph replay, macro-contextual precedent retrieval, and ML over historical technology deployments. A separate macroeconomic line shows that history can also enter as a **prior over which past regimes deserve weight**, without any named precedent being explicitly retrieved.
 
 The sharpest remaining frontier is **not simply disanalogy detection**. CANA already scores where an analogy breaks and includes per-analogy limitations in its Structural Analogy Brief. The harder unresolved step is to turn those limitations into **projection-level transfer control**:
 
@@ -48,3 +49,5 @@ The sharpest remaining frontier is **not simply disanalogy detection**. CANA alr
 with calibrated uncertainty, competing mechanism representations, dependence-aware multi-precedent evidence and persistent applicability memory.
 
 A second high-level result is the current **representation/calibration frontier**: narrow historical analogues (past observations, trajectories, macro regimes) can be tested rigorously out of sample, while semantically rich event/mechanism analogies are much harder to calibrate. The interesting engineering target is to move the former's empirical discipline upward without flattening the latter's historical structure.
+
+A third result is historical continuity in the engineering problem itself. 1980s–2000s foreign-policy and military AI already explored precedent-based logic, case reuse/adaptation and difference-aware decision support. Foundation models reverse the old bottleneck: representation/search is dramatically more flexible, while explicit applicability control remains comparatively underdeveloped.
