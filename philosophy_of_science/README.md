@@ -16,6 +16,9 @@ That question is very close to the current AI frontier around open-world source�
 - [`FORMAL_CONFIRMATION.md`](FORMAL_CONFIRMATION.md) — Bayesian confirmation, formal analogical inference and why similarity is not itself confirmation.
 - [`TRANSFER_AND_EXTRAPOLATION.md`](TRANSFER_AND_EXTRAPOLATION.md) — external validity, the logical/evidential/practical problems of extrapolation, uncertainty and target-side evidence.
 - [`REPRESENTATION_AND_SIMILARITY.md`](REPRESENTATION_AND_SIMILARITY.md) — source/target non-uniqueness, metric dependence, inferred properties and conceptual revision.
+- [`LOCALISM_AND_CONTEXT.md`](LOCALISM_AND_CONTEXT.md) — a portable transfer-control grammar with domain-local evidential rules rather than one universal analogy score.
+- [`ROBUSTNESS_AND_MULTI_ANALOGUE.md`](ROBUSTNESS_AND_MULTI_ANALOGUE.md) — why agreement among several analogues is not automatically several independent confirmations.
+- [`ANALOGUE_EXPERIMENTS.md`](ANALOGUE_EXPERIMENTS.md) — plausibility, model-external support and external validation as distinct transfer states.
 - [`../data/philosophy_of_science_analogy.csv`](../data/philosophy_of_science_analogy.csv) — structured literature map.
 
 ## Current high-level result
@@ -49,13 +52,36 @@ but something closer to:
 ```text
 representation R
 projection p
-comparability assumptions A
+bridge/comparability assumptions A
 supporting evidence E+
 blocking evidence E-
 transfer status: LICENSED / CONDITIONAL / VETOED / UNKNOWN
 uncertainty
 falsifier / target-side test
+validation state
 ```
+
+## Three stronger conclusions from the first sweep
+
+### 1. Similarity is not confirmation
+
+Recent Bayesian work makes similarity evidential only through a bridge/inferential structure and background knowledge. Different formal structures can even make more believed similarity reduce target confirmation.
+
+### 2. Multi-source agreement is not automatically independent evidence
+
+The robustness literature warns that agreement among several models/sources may simply reproduce shared assumptions, representational omissions or one common data lineage. A multi-analogue system therefore needs assumption/dependence analysis, not precedent voting.
+
+### 3. There may be no universal analogue score
+
+Localist work in historical science argues that justification depends on contextually available facts and field-specific norms. The engineering target may therefore be:
+
+```text
+shared control states
++
+domain-local warrant predicates / thresholds / falsifiers
+```
+
+rather than one global similarity-to-transfer function.
 
 ## Why the field is active now
 
@@ -63,7 +89,7 @@ Francesco Nappo and Giovanni Valente's **_Analogical Reasoning in Science_** app
 
 Canonical: https://doi.org/10.1017/9781009526494
 
-Recent work also develops Bayesian confirmation models, competing formal structures of analogical inference, philosophy of climate analogues, extrapolation under uncertainty, analogical abduction, biomedical similarity and representation revision.
+Recent work also develops Bayesian confirmation models, competing formal structures of analogical inference, philosophy of climate analogues, extrapolation under uncertainty, analogical abduction, biomedical similarity, robustness analysis, analogue experiments and representation revision.
 
 ## Working bridge to AI
 
@@ -74,7 +100,8 @@ AI strength:
 open representation + large-scale source search + flexible mapping
 
 PoS strength:
-comparability premises + evidential relevance + uncertainty + external validity + falsification discipline
+comparability premises + evidential relevance + uncertainty
++ external validity + robustness/dependence + falsification discipline
 ```
 
 The research opportunity is not to insert philosophical vocabulary into an LLM prompt. It is to determine whether these normative distinctions can become **training targets, control states, benchmark labels or validation constraints** for analogical systems.
