@@ -2,16 +2,46 @@
 
 **Snapshot: 21 August 2026.**
 
-A central missing object in many analogy pipelines is the rule that explains why a shared feature should make a projected feature more likely.
+A central object in rigorous analogy theory is the rule that explains why a shared feature should make a projected feature more likely. This is **not a new computational idea**: symbolic AI work on determination rules made this object explicit decades ago. The contemporary opportunity is narrower — learn, validate and update such relevance rules in open representation spaces rather than assume them in a hand-built knowledge base.
 
-## 1. Zwirn & Zwirn 2026
+## 1. Symbolic AI prior art — Davies & Russell 1987
+
+**Todd Davies & Stuart Russell, _A Logical Approach to Reasoning by Analogy_, IJCAI-87, pp. 264–270.**
+
+They analyze the domain knowledge needed to justify analogical projections and represent it with **determination rules**. In schematic form:
+
+```text
+Q = F(P1,...,Pm)
+```
+
+If source and target agree on the determining variables `P1...Pm`, the rule licenses projection of `Q` from source to target.
+
+This work was explicitly computational/AI-oriented and was designed to specify what information is relevant enough to decide a projected property.
+
+Therefore the repo should never claim that a `relevance rule between mapping and projection` is novel.
+
+### The old bottleneck
+
+The determination relation must itself be known or well supported.
+
+As later philosophical analyses emphasize, writing down the missing rule merely relocates the justification problem:
+
+```text
+Why should we believe P1...Pm determine Q in this domain?
+```
+
+That is exactly where modern learned/open-world systems may differ from hand-engineered symbolic systems.
+
+---
+
+## 2. Zwirn & Zwirn 2026 — extend the rule space
 
 **Hervé Zwirn & Denis Zwirn, _Reasoning by Analogy and by Difference_, Journal for General Philosophy of Science 57 (2026), 135–167.**  
 DOI: https://doi.org/10.1007/s10838-025-09718-8
 
 Their account treats analogy as always relative to a **domain / point of view**. There is no absolute statement that `A is analogous to B`; there is only analogy with respect to some property domain/function.
 
-More importantly, analogical inference requires meta-level background rules connecting the shared dimension to the projected dimension.
+They retain determination-style meta-rules but make them probabilistic/non-monotonic and broaden the possible relation between mapped and projected dimensions.
 
 Schematically:
 
@@ -20,35 +50,6 @@ f(A) = f(B)
 g(B) = β
 background meta-rule: f determines g with strength λ
 → infer g(A) = β with corresponding defeasible strength
-```
-
-## 2. Why this is a useful missing layer
-
-Most computational pipelines can already estimate:
-
-```text
-f(A) ≈ f(B)
-```
-
-but often jump directly to:
-
-```text
-g(B) → g(A).
-```
-
-The meta-rule supplies the **relevance relation**:
-
-```text
-Why should sameness on f tell us anything about sameness on g?
-```
-
-Engineering translation:
-
-```text
-mapping score
-+
-projection-specific relevance rule
-→ transfer strength.
 ```
 
 ## 3. Reasoning by difference is broader than vetoing similarity
@@ -83,9 +84,41 @@ This is close to an applicability model:
 P(g(A)=g(B) | f(A)=f(B), context) = λ.
 ```
 
-But a controller should additionally represent exception conditions and domain shift.
+But a modern controller additionally needs exception conditions, domain shift and evidence for why the rule should be trusted in this target.
 
-## 5. Competing analogies become competing rule applications
+## 5. Why this still matters for foundation models
+
+Modern LLM systems increasingly learn:
+
+```text
+representation
+retrieval
+mapping
+```
+
+from open text/data rather than receiving a symbolic ontology.
+
+The unsolved modernized problem is therefore not:
+
+```text
+invent the notion of determination/relevance.
+```
+
+It is:
+
+```text
+learn candidate relevance rule f → g
+from heterogeneous evidence
+→ estimate its domain/context of validity
+→ identify exceptions/boundaries
+→ calibrate its strength
+→ update it after target outcomes
+→ preserve provenance/evidence.
+```
+
+That is a different engineering problem from supplying a determination rule manually.
+
+## 6. Competing analogies become competing rule applications
 
 When sources disagree, the question is not only which source is more similar.
 
@@ -99,9 +132,9 @@ which exception / counter-rule is active?
 
 This is a cleaner way to localize disagreement.
 
-## 6. Relation to bridge hypotheses
+## 7. Relation to bridge hypotheses
 
-Nappo's Bayesian `bridge hypothesis` and Zwirn & Zwirn's meta-rule perform related but not identical functions.
+Nappo's Bayesian `bridge hypothesis` and determination/meta-rules perform related but not identical functions.
 
 A useful engineering decomposition is:
 
@@ -121,7 +154,7 @@ context/evidence:
 
 This creates a typed place for transfer failure.
 
-## 7. Training opportunity
+## 8. Training opportunity
 
 Instead of training only on source-target-answer triples, construct examples containing:
 
@@ -142,12 +175,21 @@ irrelevant
 conditional on C
 ```
 
-This begins to look like learning **analogical relevance operators** rather than memorizing analogies.
+The novelty, if any, would lie in **learning and validating open-world analogical relevance operators**, not in the existence of determination rules themselves.
+
+## 9. Falsification criterion
+
+The modern relevance-head hypothesis should be weakened if:
+
+- end-to-end outcome training learns projection relevance equally well without an explicit rule state;
+- learned rules fail to generalize beyond the domains used to identify them;
+- extracted meta-rules merely paraphrase model outputs without improving calibration or transfer;
+- symbolic/causal tools already provide the required relation more reliably in the target domain.
 
 ## Bottom line
 
-The meta-rule framework provides a strong candidate answer to the interface between mapping and transfer:
+The historical computational lesson and contemporary philosophy converge:
 
-> **A correspondence becomes inferentially useful only when background knowledge links the mapped feature to the property being projected.**
+> **A correspondence becomes inferentially useful only through background knowledge connecting the mapped feature to the property being projected.**
 
-For AI, that suggests a dedicated projection-relevance layer, explicitly separable from source retrieval and structural alignment.
+The 2026 research question is not whether that layer should exist conceptually. It is whether foundation-model systems can **learn, calibrate, falsify and revise it in open domains**.
