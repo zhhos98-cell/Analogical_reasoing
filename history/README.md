@@ -20,6 +20,8 @@ Out of scope by default:
 
 Start with [`HISTORICAL_ANALOGY.md`](HISTORICAL_ANALOGY.md).
 
+For the forecasting lineage from structured expert analogy to statistical episodes, trajectory matching and mechanism-level event analogy, see [`FORECASTING_ANALOGIES.md`](FORECASTING_ANALOGIES.md).
+
 Structured application map: [`../data/historical_analogy_applications.csv`](../data/historical_analogy_applications.csv).
 
-The current direct core is small: **Past Meets Present (ACL 2025) → Analogical Deep Research / CANA (2026)**. The first focuses on historical analogue acquisition; the second turns historical analogies into mechanism-aligned, multi-source evidence for foresight. Surrounding applications include political-analogy detection, strategic decision support, and historical-pattern forecasting.
+The current direct core is small: **Past Meets Present (ACL 2025) → Analogical Deep Research / CANA (2026)**. The first focuses on historical analogue acquisition; the second turns historical analogies into mechanism-aligned, multi-source evidence for foresight. Surrounding applications include political-analogy detection, strategic decision support, statistical historical-episode interpretation, and historical-pattern forecasting.
