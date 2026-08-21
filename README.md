@@ -8,17 +8,24 @@ The first priority is to understand the contemporary field on its own terms. His
 
 - **[FIELD_MAP.md](FIELD_MAP.md)** — operational map of the field: pipeline, communities, benchmark landscape, method families, empirical consensus, research gaps, and labs/groups to watch.
 - **[GAP_MAP.md](GAP_MAP.md)** — capability-boundary ledger: what current systems can actually do, where performance breaks, and which gaps are established versus frontier.
+- **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, and agent memory.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
 - **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
+- **[data/adjacent_fields.csv](data/adjacent_fields.csv)** — crosswalk from neighboring fields to analogical-reasoning gaps.
 - Category notes below — close reading of representative work.
 
 ## Latest watchlist — August 2026
 
 | Date | Paper | Why it matters | Category |
 |---|---|---|---|
+| 2026-08-13 | [Li et al., *Beyond Retrieval: Query-Conditioned Reuse of Long-Horizon Agent Trajectories*](https://arxiv.org/abs/2608.12847) | Separates **retrieval** from post-retrieval **reuse/applicability/rebinding/verification**; highly relevant to analogy transfer. | Adjacent: agent memory / reuse |
+| 2026-08-10 | [Engdahl et al., *BDH-CQ: In-Context Learning with Recurrent Latent Reasoning*](https://arxiv.org/abs/2608.09888) | Learns demonstration-conditioned visual operator schemas in recurrent latent memory without parameter updates at inference. | Adjacent: operator induction |
 | 2026-08-04 | [Shen et al., *On the Diversity of Analogy Making in Large Language Models*](papers/05_generalization-and-failure.md#shen-2026) | Moves upstream from mapping to **candidate-source generation**; finds domain homogeneity and a diversity–quality tradeoff. | Retrieval / generation failure |
+| 2026-07 | [Wei et al., *A Survey of Reasoning-Intensive Retrieval*](https://aclanthology.org/2026.acl-long.1949/) | Shows that retrieval via latent inferential links is becoming a distinct field, directly overlapping the relational-retrieval gap. | Adjacent: reasoning-intensive retrieval |
+| 2026-07 | [Zhai et al., *Abstain-R1*](https://aclanthology.org/2026.findings-acl.985/) | Demonstrates that abstention/clarification can be trained with verifiable rewards rather than expected to emerge from scale. | Adjacent: control / rejection |
 | 2026-07-15 | [Chen et al., *Analogical Deep Research*](papers/06_discovery-and-causal-analogy.md#chen-2026) | Open-world retrieval and integration of analogies using mechanism alignment and cross-analogy confirmation. | Discovery / open-world analogy |
 | 2026-07 | [Lu et al., *CHAIRO*](https://aclanthology.org/2026.acl-long.1692/) | End-to-end analogical retrieval + rule induction in a real application; useful as an application-level pipeline case. | Analogical induction application |
+| 2026-06-11 | [Xiao et al., *Learning to Reason by Analogy via RA-RFT*](https://arxiv.org/abs/2606.13680) | Trains retrieval around **expected reasoning benefit** rather than semantic similarity and couples it to reinforcement fine-tuning. | Retrieval / training |
 | 2026-05-11 | [Shen, Druckmann & Zou, *Unlocking LLM Creativity in Science through Analogical Reasoning*](https://arxiv.org/abs/2605.11258) | Uses cross-domain analogies to expand the solution space for open-ended scientific problems. | Scientific discovery |
 | 2026-04-07 | [Hellwig et al., *Transformer See, Transformer Do*](https://arxiv.org/abs/2604.06501) | Small meta-trained Transformer generalizes to new alphabets and exposes a reconstructable internal algorithm. | Training / generalization / mechanism |
 | 2026-04 | [Stevenson et al., *Can Large Language Models Generalize Analogy Solving Like Children Can?*](papers/05_generalization-and-failure.md#stevenson-2026) | Strong test of near/far procedural transfer: Latin → Greek → unfamiliar symbols. | Generalization |
@@ -50,9 +57,10 @@ By mid-2026 the most stable pattern is not “LLMs can” or “LLMs cannot” r
 - persistent confusion between **association/surface similarity and relational correspondence**;
 - evidence that correct relational representations can exist internally even when **application/output fails**;
 - explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
-- open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance.
+- open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance;
+- several neighboring fields are independently converging on the need for an explicit **control layer** that separates representation, retrieval, applicability, rejection, reuse, and verification.
 
-See [GAP_MAP.md](GAP_MAP.md) for the capability boundary and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
