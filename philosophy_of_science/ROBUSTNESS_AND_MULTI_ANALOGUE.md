@@ -56,9 +56,58 @@ independence in inferential structure.
 
 A system needs a reason to believe its source set explores genuinely different failure modes.
 
-## 3. What agreement can still do
+## 3. Lehtinen 2026 — inferential rules clarify what robustness can establish
 
-Robustness need not be useless.
+**Aki Lehtinen, _Inferential rules for confirmatory robustness_, European Journal for Philosophy of Science 16:34 (2026).**  
+DOI: https://doi.org/10.1007/s13194-026-00722-3
+
+Lehtinen responds directly to recent criticism by giving two non-standard inferential update rules.
+
+### Derivational Confirmation Rule (DCR)
+
+Using component `X` in deriving result `R` can increase confidence in:
+
+```text
+P(R | X)
+```
+
+when relevant variation in other model components shows that `R` persists.
+
+### Derivational Disconfirmation Rule (DDR)
+
+If `R` can be derived **without** component `X`, this lowers the reason to think `X` is required for `R`.
+
+The important point is not the exact notation. Robustness can reveal which components are doing inferential work and which auxiliaries are dispensable.
+
+## 4. Robustness is still not automatically empirical confirmation
+
+Lehtinen's positive account preserves an important limitation:
+
+```text
+robust model result
+≠
+empirically confirmed real-world result.
+```
+
+Derivational robustness can strengthen an indirect confirmation chain when an empirically validated result and a model prediction depend on the same relevant components. Without such an empirical bridge, robustness mainly changes confidence in the model-level conditional relationship.
+
+### AI translation
+
+Several analogues may establish:
+
+```text
+projection p is insensitive to source-specific auxiliaries x,y,z
+```
+
+without establishing:
+
+```text
+p is true in target T.
+```
+
+The latter still needs target-side/externally validated evidence.
+
+## 5. What agreement can still do
 
 Agreement across deliberately varied assumptions can help identify:
 
@@ -69,7 +118,7 @@ Agreement across deliberately varied assumptions can help identify:
 
 The engineering target should therefore be **structured robustness analysis**, not majority vote.
 
-## 4. Multi-analogue confirmation as an intervention over assumptions
+## 6. Multi-analogue confirmation as an intervention over assumptions
 
 A stronger procedure is:
 
@@ -90,7 +139,15 @@ or are all sources reproducing one shared mistake?
 
 This turns multi-analogue reasoning into a form of assumption sensitivity analysis.
 
-## 5. Disagreement is epistemically valuable
+A Lehtinen-inspired controller could additionally ask:
+
+```text
+Can p still be obtained when suspected auxiliary x is removed?
+If yes, lower x's claimed relevance.
+If no, x may be part of the active bridge — now seek empirical/target evidence for x.
+```
+
+## 7. Disagreement is epistemically valuable
 
 An analogue that fails to support the dominant projection can be more informative than another confirming source.
 
@@ -103,17 +160,18 @@ A mature system should actively search for:
 
 This is a stronger use of source diversity than maximizing confirmation count.
 
-## 6. Relation to cross-analogy confirmation
+## 8. Relation to cross-analogy confirmation
 
 For systems such as CANA, cross-analogy confirmation is plausible only when supporting sources are sufficiently independent relative to the inferred structural role.
 
-The robustness literature adds a stronger demand:
+The robustness literature adds two stronger demands:
 
-> independence should be assessed at the level of **assumptions and representational failure modes**, not only event identity.
+1. independence should be assessed at the level of **assumptions and representational failure modes**, not only event identity;
+2. agreement should identify what is **invariant under meaningful variation**, then seek an external/target evidential bridge before calling that invariance empirical confirmation.
 
 Two historical cases with no direct genealogical relation can still depend on the same abstract model supplied by the reasoning system.
 
-## 7. Candidate metrics
+## 9. Candidate metrics
 
 A multi-analogue controller could record:
 
@@ -126,6 +184,9 @@ data_provenance:
 mechanism_lineage:
 representation_generator:
 independence_estimate:
+auxiliary_removed:
+projection_survives_without_auxiliary:
+external_validation_link:
 disagreement_type:
 ```
 
@@ -136,12 +197,14 @@ Possible benchmark metrics:
 - assumption diversity;
 - counter-analogue recall;
 - probability response to genuinely independent vs redundant confirmations;
-- ability to identify the core assumption shared by robust sources.
+- ability to identify the core assumption shared by robust sources;
+- correct down-weighting of auxiliaries shown dispensable;
+- ability to distinguish robust model-level support from empirical target confirmation.
 
 ## Bottom line
 
 The philosophy of robustness gives a direct constraint on multi-analogue AI:
 
-> **Do not reward agreement among sources unless the system can say what was varied, what remained invariant, and why the sources represent distinct opportunities for error.**
+> **Do not reward agreement among sources unless the system can say what was varied, what remained invariant, which auxiliaries were shown dispensable, and what empirical bridge connects the invariant structure to the target.**
 
-The goal is not more precedents. It is more informative variation.
+The goal is not more precedents. It is more informative variation plus external grounding.
