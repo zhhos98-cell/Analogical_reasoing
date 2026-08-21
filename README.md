@@ -13,6 +13,8 @@ The first priority is to understand the contemporary field on its own terms. His
 - **[TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md)** — focused bridge to modern Case-Based Reasoning and causal transportability; refines “analogy rejection” into open-world learned transfer validity.
 - **[INTERSECTION_SCAN.md](INTERSECTION_SCAN.md)** — adversarial four-way scan of learned representation × adaptation-aware retrieval × transfer validity × failure-driven update; states exactly what remains unclosed.
 - **[CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md)** — tracks the rapid neuralization of CBR: learned case selection, implicit adaptation, error→operator memory, and deployment-time continual learning.
+- **[LAST_MILE_SCAN.md](LAST_MILE_SCAN.md)** — stress-tests the remaining frontier against latent causal bandits, learned transfer representations, Bayesian negative-transfer control, and transportable representations.
+- **[CLAIM_LEVEL_TRANSFER.md](CLAIM_LEVEL_TRANSFER.md)** — isolates the narrowest remaining gap: projection-by-projection transfer validity and persistent negative applicability memory.
 - **[PROGRAM_MAP.md](PROGRAM_MAP.md)** — research-program map: which groups have sustained architecture/evaluation/agent/discovery programs and which gaps still have no clear owner.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
 - **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
@@ -78,7 +80,7 @@ By August 2026 the most stable pattern is not “LLMs can” or “LLMs cannot�
 - the remaining underoccupied frontier is therefore **open-world learned transfer validity**: integrate flexible learned relational representations with adaptation/failure control, claim-level source→target validity, and failure-driven relational rerepresentation;
 - importantly, ICCBR 2026 evidence suggests that conceptual modularity does **not** imply every adaptation stage should be a separate natural-language LLM call: explicit multi-stage adaptation can compound errors.
 
-See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md) for the refined source→target validity problem, [INTERSECTION_SCAN.md](INTERSECTION_SCAN.md) for the current four-way frontier test, [CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md) for modern CBR convergence, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md) for the refined source→target validity problem, [INTERSECTION_SCAN.md](INTERSECTION_SCAN.md) for the current four-way frontier test, [CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md) for modern CBR convergence, [LAST_MILE_SCAN.md](LAST_MILE_SCAN.md) for the final neighboring transfer stress-test, [CLAIM_LEVEL_TRANSFER.md](CLAIM_LEVEL_TRANSFER.md) for the narrow claim-level frontier, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
