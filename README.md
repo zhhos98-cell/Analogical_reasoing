@@ -7,16 +7,40 @@ The first priority is to understand the contemporary field on its own terms. His
 ## Start here
 
 - **[FIELD_MAP.md](FIELD_MAP.md)** — operational map of the field: pipeline, communities, benchmark landscape, method families, empirical consensus, research gaps, and labs/groups to watch.
+- **[GAP_MAP.md](GAP_MAP.md)** — capability-boundary ledger: what current systems can actually do, where performance breaks, and which gaps are established versus frontier.
+- **[ADJACENT_FIELDS.md](ADJACENT_FIELDS.md)** — research that attacks the same gaps without using `analogy` as its primary label: reasoning-intensive retrieval, abstention/control, operator induction, visual abstraction, agent memory, failure learning, and active belief/state revision.
+- **[CONTROL_LAYER.md](CONTROL_LAYER.md)** — coverage matrix for emerging analogical controllers: who already does search, ranking, rejection, rebinding, verification, trajectory training, state revision, and memory update.
+- **[TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md)** — focused bridge to modern Case-Based Reasoning and causal transportability; refines “analogy rejection” into open-world learned transfer validity.
+- **[INTERSECTION_SCAN.md](INTERSECTION_SCAN.md)** — adversarial four-way scan of learned representation × adaptation-aware retrieval × transfer validity × failure-driven update; states exactly what remains unclosed.
+- **[CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md)** — tracks the rapid neuralization of CBR: learned case selection, implicit adaptation, error→operator memory, and deployment-time continual learning.
+- **[LAST_MILE_SCAN.md](LAST_MILE_SCAN.md)** — stress-tests the remaining frontier against latent causal bandits, learned transfer representations, Bayesian negative-transfer control, and transportable representations.
+- **[CLAIM_LEVEL_TRANSFER.md](CLAIM_LEVEL_TRANSFER.md)** — isolates the narrowest remaining gap: projection-by-projection transfer validity and persistent negative applicability memory.
+- **[PROGRAM_MAP.md](PROGRAM_MAP.md)** — research-program map: which groups have sustained architecture/evaluation/agent/discovery programs and which gaps still have no clear owner.
 - **[data/papers.csv](data/papers.csv)** — structured paper metadata.
+- **[data/gaps.csv](data/gaps.csv)** — queryable gap ledger with status, confidence, diagnostic transition, and representative evidence.
+- **[data/adjacent_fields.csv](data/adjacent_fields.csv)** — crosswalk from neighboring fields to analogical-reasoning gaps.
+- **[data/control_systems.csv](data/control_systems.csv)** — system-by-system control-layer coverage.
+- **[data/transfer_validity.csv](data/transfer_validity.csv)** — source–target validity, adaptation, failure-control, and uncertainty mechanisms across CBR and causal transportability.
+- **[data/intersection_scan.csv](data/intersection_scan.csv)** — system-by-system coverage of the four-way frontier intersection.
+- **[data/cbr_llm_convergence.csv](data/cbr_llm_convergence.csv)** — modern CBR/LLM systems classified by retrieval unit, adaptation style, failure signal, and memory update.
+- **[data/programs.csv](data/programs.csv)** — program maturity, key people/networks, strongest gaps, and missing layers.
 - Category notes below — close reading of representative work.
 
 ## Latest watchlist — August 2026
 
 | Date | Paper | Why it matters | Category |
 |---|---|---|---|
+| 2026-08-16 | [Felekis et al., *Generalised Transportability via Causal Abstractions*](https://arxiv.org/abs/2608.15645) | Gives model-level exact source→target transport maps and, when exact transport fails, approximate maps with **certified query intervals**. | Adjacent: transfer validity / uncertainty |
+| 2026-08-13 | [Li et al., *Beyond Retrieval: Query-Conditioned Reuse of Long-Horizon Agent Trajectories*](https://arxiv.org/abs/2608.12847) | Separates **retrieval** from post-retrieval **reuse/applicability/rebinding/verification**; highly relevant to analogy transfer. | Adjacent: agent memory / reuse |
+| 2026-08-10 | [Engdahl et al., *BDH-CQ: In-Context Learning with Recurrent Latent Reasoning*](https://arxiv.org/abs/2608.09888) | Learns demonstration-conditioned visual operator schemas in recurrent latent memory without parameter updates at inference. | Adjacent: operator induction |
 | 2026-08-04 | [Shen et al., *On the Diversity of Analogy Making in Large Language Models*](papers/05_generalization-and-failure.md#shen-2026) | Moves upstream from mapping to **candidate-source generation**; finds domain homogeneity and a diversity–quality tradeoff. | Retrieval / generation failure |
+| 2026-08-01 | [Nkisi-Orji, Salimi & Wiratunga, *Failure-Aware Matching-Based Adaptation for Generalisable Reuse*](https://link.springer.com/chapter/10.1007/978-3-032-33865-5_4) | CARM implements `construct → failure-aware accept/reject → widen retrieval → rematch` across structured CBR domains. | Adjacent: CBR adaptation / failure control |
+| 2026-08-01 | [Sipp & Lieber, *An Adaptation-Guided and Efficient Case Retrieval Approach*](https://link.springer.com/chapter/10.1007/978-3-032-33865-5_3) | Defines retrieval by **minimal downstream adaptation effort**, not nearest semantic similarity. | Adjacent: CBR retrieval / adaptation |
+| 2026-07 | [Wei et al., *A Survey of Reasoning-Intensive Retrieval*](https://aclanthology.org/2026.acl-long.1949/) | Shows that retrieval via latent inferential links is becoming a distinct field, directly overlapping the relational-retrieval gap. | Adjacent: reasoning-intensive retrieval |
+| 2026-07 | [Zhai et al., *Abstain-R1*](https://aclanthology.org/2026.findings-acl.985/) | Demonstrates that abstention/clarification can be trained with verifiable rewards rather than expected to emerge from scale. | Adjacent: control / rejection |
 | 2026-07-15 | [Chen et al., *Analogical Deep Research*](papers/06_discovery-and-causal-analogy.md#chen-2026) | Open-world retrieval and integration of analogies using mechanism alignment and cross-analogy confirmation. | Discovery / open-world analogy |
 | 2026-07 | [Lu et al., *CHAIRO*](https://aclanthology.org/2026.acl-long.1692/) | End-to-end analogical retrieval + rule induction in a real application; useful as an application-level pipeline case. | Analogical induction application |
+| 2026-06-11 | [Xiao et al., *Learning to Reason by Analogy via RA-RFT*](https://arxiv.org/abs/2606.13680) | Trains retrieval around **expected reasoning benefit** rather than semantic similarity and couples it to reinforcement fine-tuning. | Retrieval / training |
 | 2026-05-11 | [Shen, Druckmann & Zou, *Unlocking LLM Creativity in Science through Analogical Reasoning*](https://arxiv.org/abs/2605.11258) | Uses cross-domain analogies to expand the solution space for open-ended scientific problems. | Scientific discovery |
 | 2026-04-07 | [Hellwig et al., *Transformer See, Transformer Do*](https://arxiv.org/abs/2604.06501) | Small meta-trained Transformer generalizes to new alphabets and exposes a reconstructable internal algorithm. | Training / generalization / mechanism |
 | 2026-04 | [Stevenson et al., *Can Large Language Models Generalize Analogy Solving Like Children Can?*](papers/05_generalization-and-failure.md#stevenson-2026) | Strong test of near/far procedural transfer: Latin → Greek → unfamiliar symbols. | Generalization |
@@ -26,7 +50,7 @@ The first priority is to understand the contemporary field on its own terms. His
 
 ## The working pipeline
 
-`target representation ↔ source search → relation extraction → structural alignment → matching/adjudication → projection/inference → execution → validation/generalization → learning/update`
+`target representation ↔ source search → relation extraction → structural alignment → matching/adjudication → adaptation/rebinding → projection/inference → execution → validation/generalization → revision/retention`
 
 This pipeline is the main indexing unit for the repo. A paper is classified by **which stage it actually solves or diagnoses**, not just by whether its title contains “analogy”.
 
@@ -41,16 +65,22 @@ This pipeline is the main indexing unit for the repo. A paper is classified by *
 
 ## Current empirical picture
 
-By mid-2026 the most stable pattern is not “LLMs can” or “LLMs cannot” reason analogically. It is more specific:
+By August 2026 the most stable pattern is not “LLMs can” or “LLMs cannot” reason analogically. It is more specific:
 
 - strong performance on many **provided, familiar, near-domain** analogy tasks;
 - substantial brittleness under **far transfer, new symbol systems, long narratives, visual transformations, or large source banks**;
 - persistent confusion between **association/surface similarity and relational correspondence**;
 - evidence that correct relational representations can exist internally even when **application/output fails**;
 - explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
-- open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance.
+- open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance;
+- several neighboring fields are independently converging on an explicit **control layer** separating representation, retrieval, applicability, rejection, reuse, verification, belief revision, and learning from failure;
+- modern CBR already owns much of the `retrieve → adapt/reuse → detect failure → revise → retain` problem and is itself becoming increasingly LLM- and learned-policy-based;
+- causal transportability already owns a strong formal version of `when is source→target transfer valid, and how uncertain is approximate transfer?`;
+- agent/RAG research already provides typed failure diagnosis, local repair, representation expansion, and failure-driven memory updates;
+- the remaining underoccupied frontier is therefore **open-world learned transfer validity**: integrate flexible learned relational representations with adaptation/failure control, claim-level source→target validity, and failure-driven relational rerepresentation;
+- importantly, ICCBR 2026 evidence suggests that conceptual modularity does **not** imply every adaptation stage should be a separate natural-language LLM call: explicit multi-stage adaptation can compound errors.
 
-See [FIELD_MAP.md](FIELD_MAP.md) for the detailed evidence map.
+See [GAP_MAP.md](GAP_MAP.md) for the capability boundary, [ADJACENT_FIELDS.md](ADJACENT_FIELDS.md) for neighboring solutions, [CONTROL_LAYER.md](CONTROL_LAYER.md) for the controller coverage matrix, [TRANSFER_VALIDITY.md](TRANSFER_VALIDITY.md) for the refined source→target validity problem, [INTERSECTION_SCAN.md](INTERSECTION_SCAN.md) for the current four-way frontier test, [CBR_LLM_CONVERGENCE.md](CBR_LLM_CONVERGENCE.md) for modern CBR convergence, [LAST_MILE_SCAN.md](LAST_MILE_SCAN.md) for the final neighboring transfer stress-test, [CLAIM_LEVEL_TRANSFER.md](CLAIM_LEVEL_TRANSFER.md) for the narrow claim-level frontier, [PROGRAM_MAP.md](PROGRAM_MAP.md) for program ownership, and [FIELD_MAP.md](FIELD_MAP.md) for the broader field map.
 
 ## Inclusion rule
 
@@ -59,15 +89,17 @@ A paper enters the **core** corpus when it substantially illuminates at least on
 - How is the target/source represented relationally?
 - How are candidate source analogies retrieved or generated?
 - How are relations abstracted and structures aligned?
-- How are plausible analogies matched, ranked, or rejected?
+- How is a retrieved source adapted/rebound for the target?
+- How are plausible analogies matched, ranked, partially accepted, or rejected?
 - How is structure projected into a new inference or solution?
 - What enables or blocks far/OOD transfer?
 - What training objective or architecture improves analogical competence?
 - What causal internal mechanism implements the behavior?
+- How does failure revise later retrieval, representation, or memory?
 - Can analogy operate in open-ended discovery rather than a closed benchmark?
 
-Prompting papers, metaphor work, ARC/Raven work, generic relational reasoning, RAG, and case-based reasoning are **adjacent** unless they answer one of these pipeline questions directly.
+Prompting papers, metaphor work, ARC/Raven work, generic relational reasoning, RAG, case-based reasoning, and causal-transfer work are **adjacent** unless they answer one of these pipeline questions directly. Adjacent fields are intentionally tracked when they solve a component that analogy research has left implicit.
 
 ## Repository policy
 
-This repository stores metadata, analytical notes, canonical links, and reproducibility/code links. It does not mirror copyrighted PDFs by default. The goal is a lightweight research observatory that can be updated continuously and queried by mechanism, task family, evidence type, and failure mode.
+This repository stores metadata, analytical notes, canonical links, and reproducibility/code links. It does not mirror copyrighted PDFs by default. The goal is a lightweight research observatory that can be updated continuously and queried by mechanism, task family, evidence type, failure mode, and source→target transfer assumptions.
