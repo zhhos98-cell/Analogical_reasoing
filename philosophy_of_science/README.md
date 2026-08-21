@@ -14,11 +14,13 @@ That question is very close to the current AI frontier around open-world source�
 
 - [`CURRENT_MAP.md`](CURRENT_MAP.md) — eight-part decomposition of the current epistemology of analogy/transfer.
 - [`FORMAL_CONFIRMATION.md`](FORMAL_CONFIRMATION.md) — Bayesian confirmation, formal analogical inference and why similarity is not itself confirmation.
+- [`BACKGROUND_META_RULES.md`](BACKGROUND_META_RULES.md) — a candidate relevance layer between mapping and projection: what background rule makes a shared feature informative about the projected one?
 - [`TRANSFER_AND_EXTRAPOLATION.md`](TRANSFER_AND_EXTRAPOLATION.md) — external validity, the logical/evidential/practical problems of extrapolation, uncertainty and target-side evidence.
 - [`REPRESENTATION_AND_SIMILARITY.md`](REPRESENTATION_AND_SIMILARITY.md) — source/target non-uniqueness, metric dependence, inferred properties and conceptual revision.
 - [`LOCALISM_AND_CONTEXT.md`](LOCALISM_AND_CONTEXT.md) — a portable transfer-control grammar with domain-local evidential rules rather than one universal analogy score.
 - [`ROBUSTNESS_AND_MULTI_ANALOGUE.md`](ROBUSTNESS_AND_MULTI_ANALOGUE.md) — why agreement among several analogues is not automatically several independent confirmations.
 - [`ANALOGUE_EXPERIMENTS.md`](ANALOGUE_EXPERIMENTS.md) — plausibility, model-external support and external validation as distinct transfer states.
+- [`PROGRAM_AND_AI_BRIDGE.md`](PROGRAM_AND_AI_BRIDGE.md) — current research network around scientific analogy and its explicit AI interfaces.
 - [`../data/philosophy_of_science_analogy.csv`](../data/philosophy_of_science_analogy.csv) — structured literature map.
 
 ## Current high-level result
@@ -61,17 +63,21 @@ falsifier / target-side test
 validation state
 ```
 
-## Three stronger conclusions from the first sweep
+## Four stronger conclusions from the first sweep
 
 ### 1. Similarity is not confirmation
 
 Recent Bayesian work makes similarity evidential only through a bridge/inferential structure and background knowledge. Different formal structures can even make more believed similarity reduce target confirmation.
 
-### 2. Multi-source agreement is not automatically independent evidence
+### 2. Mapping is not relevance
+
+A source and target can genuinely share feature/relation `f` without that fact licensing projection of `g`. Recent meta-rule approaches make the missing relation explicit: background knowledge must connect sameness/difference on the mapped dimension to the projected dimension.
+
+### 3. Multi-source agreement is not automatically independent evidence
 
 The robustness literature warns that agreement among several models/sources may simply reproduce shared assumptions, representational omissions or one common data lineage. A multi-analogue system therefore needs assumption/dependence analysis, not precedent voting.
 
-### 3. There may be no universal analogue score
+### 4. There may be no universal analogue score
 
 Localist work in historical science argues that justification depends on contextually available facts and field-specific norms. The engineering target may therefore be:
 
@@ -89,7 +95,7 @@ Francesco Nappo and Giovanni Valente's **_Analogical Reasoning in Science_** app
 
 Canonical: https://doi.org/10.1017/9781009526494
 
-Recent work also develops Bayesian confirmation models, competing formal structures of analogical inference, philosophy of climate analogues, extrapolation under uncertainty, analogical abduction, biomedical similarity, robustness analysis, analogue experiments and representation revision.
+The 2023–25 PRIN project **Analogical Reasoning in Contemporary Physical Theories** and its 2024 `Analogies in Physics and Beyond` conference linked philosophy of physics with biology, economics, robotics and AI. Ioannis Votsis's `Modelling Analogical Reasoning: One-Size-Fits-All?` makes the AI motivation explicit: automating scientific reasoning requires models that distinguish good analogical transfer from bad.
 
 ## Working bridge to AI
 
