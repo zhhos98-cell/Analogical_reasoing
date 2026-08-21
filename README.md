@@ -1,59 +1,73 @@
 # Analogical Reasoning Observatory
 
-A living map of analogical reasoning research at the boundary of AI, cognitive science, and the history of theories of reasoning.
+A living map of **current analogical reasoning research in AI**: how models represent relations, retrieve and generate source analogies, align structures, adjudicate candidate matches, transfer rules or mechanisms, generalize across domains, and use analogy in open-ended discovery.
 
-The repository tracks **mechanisms**, not merely analogy benchmarks: how models form relational representations, retrieve and align analogues, select abstraction levels, transfer structure, reject misleading analogies, and use analogy in open-ended discovery.
+The first priority is to understand the contemporary field on its own terms. Historical theories are deliberately parked until the modern computational landscape is stable.
+
+## Start here
+
+- **[FIELD_MAP.md](FIELD_MAP.md)** — operational map of the field: pipeline, communities, benchmark landscape, method families, empirical consensus, research gaps, and labs/groups to watch.
+- **[data/papers.csv](data/papers.csv)** — structured paper metadata.
+- Category notes below — close reading of representative work.
 
 ## Latest watchlist — August 2026
 
 | Date | Paper | Why it matters | Category |
 |---|---|---|---|
-| 2026-08-04 | [Shen et al., *On the Diversity of Analogy Making in Large Language Models*](papers/05_generalization-and-failure.md#shen-2026) | Shows strong domain homogeneity and a diversity–quality trade-off; adds a neglected **candidate-generation / search-space** problem. | Generalization & failure |
-| 2026-07-15 | [Chen et al., *Analogical Deep Research*](papers/06_discovery-and-causal-analogy.md#chen-2026) | Treats historical analogy as a **causal mechanism-alignment** problem and adds cross-analogy confirmation. | Discovery & causal analogy |
-| 2026 | [Petersen et al., *Modelling Analogies and Analogical Reasoning*](papers/01_cognitive-science-bridge.md#petersen-2026) | Directly connects cognitive-science theories of analogy to current NLP. Best current orientation paper for this repo. | Cognitive-science bridge |
-| 2026 | [Stevenson et al., *Can Large Language Models Generalize Analogy Solving Like Children Can?*](papers/05_generalization-and-failure.md#stevenson-2026) | Children and adults transfer analogy procedures to unfamiliar symbol systems much more robustly than LLMs. | Generalization & failure |
-| 2026-03-31 | [Khojasteh et al., *Enhancing Structural Mapping with LLM-derived Abstractions...* (YARN)](papers/04_structure-mapping-and-neurosymbolic.md#khojasteh-2026) | Hybridizes LLM representation formation with explicit structural mapping; exposes abstraction-level selection as a remaining bottleneck. | Structure mapping / neuro-symbolic |
+| 2026-08-04 | [Shen et al., *On the Diversity of Analogy Making in Large Language Models*](papers/05_generalization-and-failure.md#shen-2026) | Moves upstream from mapping to **candidate-source generation**; finds domain homogeneity and a diversity–quality tradeoff. | Retrieval / generation failure |
+| 2026-07-15 | [Chen et al., *Analogical Deep Research*](papers/06_discovery-and-causal-analogy.md#chen-2026) | Open-world retrieval and integration of analogies using mechanism alignment and cross-analogy confirmation. | Discovery / open-world analogy |
+| 2026-07 | [Lu et al., *CHAIRO*](https://aclanthology.org/2026.acl-long.1692/) | End-to-end analogical retrieval + rule induction in a real application; useful as an application-level pipeline case. | Analogical induction application |
+| 2026-05-11 | [Shen, Druckmann & Zou, *Unlocking LLM Creativity in Science through Analogical Reasoning*](https://arxiv.org/abs/2605.11258) | Uses cross-domain analogies to expand the solution space for open-ended scientific problems. | Scientific discovery |
+| 2026-04-07 | [Hellwig et al., *Transformer See, Transformer Do*](https://arxiv.org/abs/2604.06501) | Small meta-trained Transformer generalizes to new alphabets and exposes a reconstructable internal algorithm. | Training / generalization / mechanism |
+| 2026-04 | [Stevenson et al., *Can Large Language Models Generalize Analogy Solving Like Children Can?*](papers/05_generalization-and-failure.md#stevenson-2026) | Strong test of near/far procedural transfer: Latin → Greek → unfamiliar symbols. | Generalization |
+| 2026-03-31 | [Khojasteh et al., *Enhancing Structural Mapping with LLM-derived Abstractions...* (YARN)](papers/04_structure-mapping-and-neurosymbolic.md#khojasteh-2026) | Hybrid learned representations + explicit structural mapping; abstraction-level choice remains difficult. | Mapping / neuro-symbolic |
+| 2026-03-14 | [Lee et al., *The Curious Case of Analogies*](papers/03_mechanisms-and-interpretability.md#lee-2026) | Causally separates relation encoding, relation application, and structural alignment failures. | Mechanistic interpretability |
+| 2026 | [Petersen et al., *Modelling Analogies and Analogical Reasoning*](papers/01_cognitive-science-bridge.md#petersen-2026) | Best current field-level orientation connecting analogy processes with NLP research. | Field synthesis |
+
+## The working pipeline
+
+`target representation ↔ source search → relation extraction → structural alignment → matching/adjudication → projection/inference → execution → validation/generalization → learning/update`
+
+This pipeline is the main indexing unit for the repo. A paper is classified by **which stage it actually solves or diagnoses**, not just by whether its title contains “analogy”.
 
 ## Research map
 
-1. [Cognitive-science bridge](papers/01_cognitive-science-bridge.md) — theories and modern AI/NLP translations.
-2. [Architectures & training](papers/02_architectures-and-training.md) — relational bottlenecks, explicit relational attention, analogical supervision, latent-space constraints.
-3. [Mechanisms & interpretability](papers/03_mechanisms-and-interpretability.md) — where relations, alignment, and abstraction live inside models.
-4. [Structure mapping & neuro-symbolic systems](papers/04_structure-mapping-and-neurosymbolic.md) — explicit mapping engines combined with learned representations.
-5. [Generalization, adjudication & failure](papers/05_generalization-and-failure.md) — far transfer, over-analogy, diversity collapse, invalid transfer.
-6. [Discovery & causal analogy](papers/06_discovery-and-causal-analogy.md) — analogy as a tool for scientific/strategic discovery rather than closed-form analogy solving.
+1. [Cognitive-science / field bridge](papers/01_cognitive-science-bridge.md) — modern process decompositions and their connection to AI/NLP.
+2. [Architectures & training](papers/02_architectures-and-training.md) — explicit relational attention, relational bottlenecks, analogical supervision, meta-learning, latent-space constraints.
+3. [Mechanisms & interpretability](papers/03_mechanisms-and-interpretability.md) — internal relation representations, alignment, access/application failures, causal interventions.
+4. [Structure mapping & neuro-symbolic systems](papers/04_structure-mapping-and-neurosymbolic.md) — explicit correspondence machinery combined with learned representations.
+5. [Generalization, adjudication & failure](papers/05_generalization-and-failure.md) — near/far transfer, robustness, false analogies, source diversity, association shortcuts.
+6. [Discovery & open-world analogy](papers/06_discovery-and-causal-analogy.md) — source search, scientific creativity, technical invention, foresight, and multi-analogy integration.
 
-Structured metadata: [`data/papers.csv`](data/papers.csv)
+## Current empirical picture
 
-## Historical constraint map
+By mid-2026 the most stable pattern is not “LLMs can” or “LLMs cannot” reason analogically. It is more specific:
 
-The historical side is treated as a source of computational constraints, not as decorative intellectual genealogy.
+- strong performance on many **provided, familiar, near-domain** analogy tasks;
+- substantial brittleness under **far transfer, new symbol systems, long narratives, visual transformations, or large source banks**;
+- persistent confusion between **association/surface similarity and relational correspondence**;
+- evidence that correct relational representations can exist internally even when **application/output fails**;
+- explicit relational architectures and carefully designed meta-learning curricula can outperform generic scaling on controlled OOD tasks;
+- open-ended analogy for science, strategy, and foresight is emerging rapidly, but still depends heavily on scaffolding, retrieval design, decomposition, or human/evaluator guidance.
 
-| Historical line | Computational question to watch |
-|---|---|
-| **Whewell** | representation selection; construction of conceptions; prediction; consilience; anti-ad-hoc theory growth |
-| **Hesse** | positive/negative/neutral analogy; causal relevance; veto conditions on transfer |
-| **Gentner / SME** | structural alignment; systematicity; candidate inference |
-| **Holyoak–Thagard / ACME, LISA** | multi-constraint mapping; goal sensitivity; role binding; working-memory limits |
-| **Hofstadter / Copycat** | representation plasticity; conceptual slippage; analogy and perception co-determine one another |
-
-A useful working decomposition is:
-
-`representation formation → source retrieval → relational abstraction → structural alignment → transfer licensing → negative-analogy veto → prediction → cross-domain validation`
+See [FIELD_MAP.md](FIELD_MAP.md) for the detailed evidence map.
 
 ## Inclusion rule
 
-A paper enters the core list when it does at least one of the following:
+A paper enters the **core** corpus when it substantially illuminates at least one of these questions:
 
-- changes the **training objective** or data-generation principle for analogical transfer;
-- introduces an **architectural inductive bias** for relational abstraction;
-- identifies a **causal/mechanistic internal process** rather than reporting benchmark accuracy alone;
-- implements explicit **structure mapping / constraint satisfaction** with learned representations;
-- isolates a failure mode relevant to **far transfer, analogy selection, rejection, or theory discovery**;
-- makes a serious bridge between cognitive theories of analogy and modern AI.
+- How is the target/source represented relationally?
+- How are candidate source analogies retrieved or generated?
+- How are relations abstracted and structures aligned?
+- How are plausible analogies matched, ranked, or rejected?
+- How is structure projected into a new inference or solution?
+- What enables or blocks far/OOD transfer?
+- What training objective or architecture improves analogical competence?
+- What causal internal mechanism implements the behavior?
+- Can analogy operate in open-ended discovery rather than a closed benchmark?
 
-Prompt-only analogy tricks and generic historical-QA agents are tracked only when they reveal a mechanism useful to the above map.
+Prompting papers, metaphor work, ARC/Raven work, generic relational reasoning, RAG, and case-based reasoning are **adjacent** unless they answer one of these pipeline questions directly.
 
 ## Repository policy
 
-This repository stores metadata, analytical notes, and links to canonical papers/code. It does not mirror copyrighted PDFs by default. The aim is to stay lightweight enough for continuous updates and eventual contact with researchers working on specific mechanism gaps.
+This repository stores metadata, analytical notes, canonical links, and reproducibility/code links. It does not mirror copyrighted PDFs by default. The goal is a lightweight research observatory that can be updated continuously and queried by mechanism, task family, evidence type, and failure mode.
