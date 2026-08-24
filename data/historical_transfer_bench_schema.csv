@@ -1,0 +1,28 @@
+field,level,required,description,example_or_values
+item_id,target,yes,Stable benchmark item identifier,HTB-001
+target_id,target,yes,Target situation/event identifier,target-2008-crisis
+target_cutoff,target,yes,Historical information cutoff date,2008-09-14
+target_brief_vintage,target,yes,Identifier for contemporaneous/vintage target brief,v1-precutoff
+target_outcome_hidden_until_eval,target,yes,Outcome unavailable to tested system,true
+representation_id,representation,yes,Candidate target/source representation identifier,R1
+representation_provenance,representation,yes,Expert/historiographic/model provenance for representation,expert-A
+representation_confidence,representation,no,Gold/expert confidence where available,0.65
+source_id,source,yes,Candidate historical precedent identifier,S-1907
+source_date,source,yes,Date/range of precedent,1907
+source_class,source,yes,Controlled source type,A|B|C|D|E|F
+source_provenance,source,yes,Auditable source/case evidence record,source-bundle-id
+dependence_cluster,source,no,Cluster of non-independent precedents,liquidity-crisis-lineage-1
+mapped_roles,mapping,yes,Gold source-target structural correspondences,trigger;amplifier;mediator
+critical_disanalogies,mapping,yes,Differences capable of changing transfer validity,d1;d2
+projection_id,projection,yes,Individual source-derived target claim,p3
+projection_statement,projection,yes,Explicit candidate transferred claim,text
+projection_label,projection,yes,Selective transfer gold label,LICENSED|CONDITIONAL|VETOED|UNKNOWN
+condition_if_any,projection,no,Condition required for CONDITIONAL transfer,C
+blocking_difference_if_any,projection,no,Disanalogy responsible for VETOED label,d1
+evidence_required_if_unknown,projection,no,Target evidence needed to resolve UNKNOWN,E
+gold_rationale,projection,yes,Auditable explanation linking mapping/disanalogy to label,text
+counter_precedent_ids,item,no,Cases that challenge favored source/trajectory,S4;S7
+source_dependence_edges,item,no,Typed source-source dependence links,S1>S2:policy-diffusion
+temporal_arm,evaluation,yes,Temporal-control condition,normal|date-masked|date-transplanted|time-locked
+memory_sequence_id,longitudinal,no,Related-target sequence for applicability-memory tests,SEQ-03
+memory_episode,longitudinal,no,Position within sequence,1|2|3
