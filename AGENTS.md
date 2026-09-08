@@ -152,3 +152,15 @@ Compact rule: **state the factual premise the argument needs; never require the 
 - During QA, mark each quotation as **word / relation / speech act** and each abstract noun as **earned / premature**. Shorten or unpack only where that classification reveals a mismatch.
 
 Compact rule: **facts first, noun after; quote only the unit that carries the evidence; let the author’s verbs do the arguing.**
+
+## Paragraph-argument compression and chain test (2026-09-08)
+
+- For every body paragraph, state its **argumentative advance** in one sentence, excluding source inventory, examples, dates, names, and materials as such. If no single sentence can state what the paragraph changes in the argument without an A/B/C list or several independent claims, the paragraph is structurally heterogeneous: split, redistribute, compress, or cut it.
+- The paragraph opening should normally govern that one argumentative advance. Do not turn every opening into abstract thesis prose; historical action may lead, but the first sentence must make clear what work the evidence is doing or set up the problem the paragraph resolves.
+- Run a **first-sentence / one-sentence-skeleton audit** after editing: read only the paragraph openings, then separately read the one-sentence argumentative summaries. Both sequences should form a coherent chain in which each paragraph advances, complicates, limits, supplies counterevidence to, or converts the unresolved problem from the previous paragraph into the next question.
+- A sequence of parallel cases, thematic packets, chronology-only steps, repeated conclusions, or detached “balance” paragraphs fails this test even if each paragraph is individually sound. Reorder or rewrite until the paragraphs produce cumulative argument.
+- Counterevidence belongs where it exerts pressure on a live claim and changes the next inferential step; do not quarantine it in a decorative counterargument paragraph.
+- When a paragraph contains more material than its one-sentence argument can govern, remove or move the excess material rather than making the opening sentence heavier.
+- Final compression test: strip each paragraph mentally to its one-sentence argument. The resulting skeleton should preserve the article's progression and its internal counterpressure. Then restore only evidence that earns a step in that chain.
+
+Compact rule: **one paragraph, one compressible argumentative advance; first sentences and paragraph summaries must read as a cumulative argument with counterevidence, not as a list of materials.**
